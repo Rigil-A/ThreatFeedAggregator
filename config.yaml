@@ -1,0 +1,30 @@
+database: "data/indicators.db"
+sources:
+  - name: "URLhaus URLs"
+    url: "https://urlhaus.abuse.ch/downloads/text/"
+    format: "text"
+    ioc_type: "url"
+
+  - name: "Feodo Tracker IPs"
+    url: "https://feodotracker.abuse.ch/downloads/ipblocklist.txt"
+    format: "text"
+    ioc_type: "ip"
+
+  - name: "Blocklist.de IPs"
+    url: "https://lists.blocklist.de/lists/all.txt"
+    format: "text"
+    ioc_type: "ip"
+
+  - name: "AlienVault OTX (JSON Example)"
+    url: "https://example-otx/api/indicators.json"
+    format: "json"
+    ioc_type: "domain"
+    extract_key: "data.items"
+    value_field: "indicator"
+
+  - name: "Abuse.ch Malware MD5"
+    url: "https://example.abuse.ch/malware/hashes.json"
+    format: "json"
+    ioc_type: "md5_hash"
+    extract_key: "hashes"
+    value_field: "md5"
