@@ -1,0 +1,114 @@
+# =======================================
+# 🐍 Python
+# =======================================
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Byte-compiled / optimized / DLL files
+*.pyo
+*.pyd
+*.so
+
+# Distribution / packaging
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+*.egg-info/
+.installed.cfg
+*.egg
+pip-wheel-metadata/
+
+# Installer logs
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Unit test / coverage reports
+htmlcov/
+.tox/
+.nox/
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+*.py,cover
+.hypothesis/
+pytest_cache/
+.pytest_cache/
+
+# =======================================
+# 🧪 Environments
+# =======================================
+.env
+.venv/
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+.ipynb_checkpoints
+
+# =======================================
+# 🧩 IDE & Editor
+# =======================================
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# =======================================
+# 🗃️ Database & Data Files
+# =======================================
+database/*.db
+database/*.sqlite
+database/*.sqlite3
+data/raw/
+data/processed/
+*.csv
+*.json
+*.xml
+*.txt
+
+# =======================================
+# 🧾 Logs
+# =======================================
+logs/
+*.log
+
+# =======================================
+# 📦 Output & Reports
+# =======================================
+output/
+reports/
+*.zip
+*.tar
+*.gz
+
+# =======================================
+# 🔒 Secrets / Keys
+# =======================================
+*.pem
+*.key
+*.crt
+*.p12
+*.cer
+*.env
+secrets.json
+
+# =======================================
+# 🧠 Jupyter / Temp
+# =======================================
+*.ipynb_checkpoints
+.DS_Store
+Thumbs.db
