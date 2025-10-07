@@ -70,30 +70,30 @@ venv.bak/
 # =======================================
 # 🗃️ Database & Data Files
 # =======================================
-# database/*.db
-# database/*.sqlite
-# database/*.sqlite3
-# data/raw/
-# data/processed/
-# *.csv
-# *.json
-# *.xml
-# *.txt
+database/*.db
+database/*.sqlite
+database/*.sqlite3
+data/raw/
+data/processed/
+*.csv
+*.json
+*.xml
+*.txt
 
 # =======================================
 # 🧾 Logs
 # =======================================
-# logs/
-# *.log
+logs/
+*.log
 
 # =======================================
 # 📦 Output & Reports
 # =======================================
-# output/
-# reports/
-# *.zip
-# *.tar
-# *.gz
+output/
+reports/
+*.zip
+*.tar
+*.gz
 
 # =======================================
 # 🔒 Secrets / Keys
