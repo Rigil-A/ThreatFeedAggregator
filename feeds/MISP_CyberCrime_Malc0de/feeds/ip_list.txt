@@ -1,0 +1,22 @@
+
+#####################################################
+#               MalSilo IPv4 feed                   #
+#####################################################
+#                                                   #
+# Dataset generated @ 2022-12-01 11:30:04 (UTC)     #
+#                                                   #
+# Use the data at your own risk, for any            #
+# re-publishing or integration into other           #
+# datasets please contact malsilo [at] tuta .io     #
+#                                                   #
+#####################################################
+#
+# Firstseen,Lastseen,ipv4:port,threat,tags 
+"2022-10-21","2022-10-21","41.216.183.175:4404","coinminer","peexe32,pegui"
+"2022-10-21","2022-10-21","171.22.30.147:80","andromeda","peexe32,pegui,assembly"
+"2022-10-21","2022-10-22","41.216.183.52:9882","emotet","peexe32,pegui"
+"2022-10-22","2022-10-22","89.208.106.66:4691","unknown","peexe32,pegui"
+"2022-10-22","2022-10-22","91.212.166.11:47242","unknown","peexe32,pegui"
+"2022-10-23","2022-10-23","195.2.93.22:4193","jaik","peexe32,pegui"
+"2022-10-23","2022-10-23","89.22.225.242:4193","jaik","peexe32,pegui"
+"2022-10-23","2022-10-23","79.137.192.57:48771","sabsik","peexe32,pegui"
