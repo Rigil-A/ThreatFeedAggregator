@@ -70,9 +70,9 @@ venv.bak/
 # =======================================
 # 🗃️ Database & Data Files
 # =======================================
-database/*.db
-database/*.sqlite
-database/*.sqlite3
+data/database/*.db
+data/database/*.sqlite
+data/database/*.sqlite3
 data/raw/
 data/processed/
 *.csv
