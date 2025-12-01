@@ -1,0 +1,244 @@
+# Dataplane.org - for operators, by operators
+# dnsrdany
+# 2025-09-30 12:00 - 2025-10-07 12:00
+#
+# The dnsrdany report is free for non-commercial use ONLY.  If you wish
+# to discuss commercial use of this service, please contact us at
+# info@dataplane.org.  Redistribution of the dnsrdany report in whole or
+# in part without the express permission of Dataplane.org is expressly
+# prohibited.
+#
+# This report is made possible through the generous support of people
+# like you.  Sensor, processing, and distribution systems require
+# non-free resources to setup and maintain.  We are always looking for
+# financial contributions to help pay the bills and hosting to increase
+# visibility.  If you find what we do useful, please consider supporting
+# us.
+#
+# This report is informational.  This is not a block list.  Deriving
+# malicious or benign intent for an individual entry in the face of
+# NATs, address spoofing, and certain types of Internet activity
+# (e.g., surveying research) can be difficult.  The report is provided
+# on an as-is basis with no expressed warranty or guarantee of accuracy.
+# Use of this data is at your own risk.  If you have questions about
+# this report do not hesitate to contact us.
+#
+# Entries below are records of source IP addresses that have been
+# identified as sending recursive DNS IN ANY queries.
+# Each entry is sorted according to a route originating ASN.  An entry
+# for the IP address is listed only once even if there are multiple
+# origin AS (MOAS) announcements for the covering prefix.  We use the
+# PyASN IP address to ASN mapping service to construct an origin AS
+# number and name.  For details about PyASN, see:
+#
+#   <https://pypi.org/project/pyasn/>.
+#
+# The report format is as follows:
+#
+# ASN  |  ASname  |  ipaddr  |  lastseen  |  category
+#
+# Each field is described below.  Please note any special formatting
+# rules to aid in processing this file with automated tools and scripts.
+# Blank lines may be present to improve the visual display of this file.
+# Lines beginning with a hash ('#') character are comment lines.  All
+# other lines are report entries.  Each field is separated by a pipe
+# symbol ('|') and at least two whitespace characters on either side.
+#
+#   ASN        Autonomous system number originating a route for the
+#              entry IP address. Note, 4-byte ASNs are supported and
+#              will be displayed as a 32-bit integer.  NA is shown if
+#              an origin ASN cannot be found.
+#
+#   ASname     A descriptive network name for the associated ASN.  The
+#              name is truncated to 30 characters.  NA is shown if an
+#              AS name cannot be found.
+#
+#   ipaddr     The IPv4 address that is being reported.
+#
+#   lastseen   A last seen timestamp formatted as YYYY-mm-dd HH:MM:SS
+#              in UTC time.
+#
+#   category   Descriptive tag name for this entry.  For this report,
+#              the text dnsrdany will appear.
+#
+# A commented footer section shows an aggregate count of ASNs and
+# addresses seen in the current report.
+#
+6128         |  CABLE-NET-1                     |  24.44.139.172    |  2025-10-01 02:06:42  |  dnsrdany
+6327         |  SHAW                            |  70.70.70.83      |  2025-10-04 01:28:38  |  dnsrdany
+6517         |  LAKENETWORKS-AS                 |  23.132.228.131   |  2025-10-06 12:40:50  |  dnsrdany
+6698         |  virtualsystems Virtual Systems  |  213.111.152.90   |  2025-10-07 11:41:35  |  dnsrdany
+7488         |  CNSERVER-AP-AS CNServer LLC     |  185.34.146.192   |  2025-10-07 11:44:32  |  dnsrdany
+7922         |  COMCAST-7922                    |  68.84.196.122    |  2025-10-04 00:59:39  |  dnsrdany
+7922         |  COMCAST-7922                    |  71.193.40.137    |  2025-10-07 12:00:00  |  dnsrdany
+7922         |  COMCAST-7922                    |  71.196.56.78     |  2025-10-07 11:59:59  |  dnsrdany
+7922         |  COMCAST-7922                    |  73.252.128.134   |  2025-10-05 08:21:29  |  dnsrdany
+7922         |  COMCAST-7922                    |  76.120.202.44    |  2025-10-05 12:53:20  |  dnsrdany
+7922         |  COMCAST-7922                    |  76.20.229.207    |  2025-10-02 13:04:33  |  dnsrdany
+9891         |  CSLOX-IDC-AS-AP CS LOXINFO Pub  |  27.254.81.151    |  2025-10-01 21:54:52  |  dnsrdany
+10796        |  TWC-10796-MIDWEST               |  173.90.180.182   |  2025-10-04 05:55:33  |  dnsrdany
+14061        |  DIGITALOCEAN-ASN                |  147.182.250.249  |  2025-10-07 11:08:12  |  dnsrdany
+20911        |  NETSURF-AS-BG Net-Surf.net Ltd  |  95.214.27.39     |  2025-10-07 07:35:11  |  dnsrdany
+21859        |  ZEN-ECN                         |  129.227.69.202   |  2025-10-07 00:31:06  |  dnsrdany
+21859        |  ZEN-ECN                         |  193.118.52.134   |  2025-10-07 00:00:38  |  dnsrdany
+25198        |  ZetServers INTERKVM HOST SRL    |  46.229.243.221   |  2025-09-30 22:44:27  |  dnsrdany
+32475        |  SINGLEHOP-LLC                   |  206.191.154.44   |  2025-10-07 11:06:18  |  dnsrdany
+32708        |  ROOT-NETWORKS LoadEdge Limited  |  185.211.78.146   |  2025-10-05 15:57:48  |  dnsrdany
+34534        |  BULLIONET FBW NETWORKS SAS      |  37.44.238.92     |  2025-10-03 21:41:34  |  dnsrdany
+36352        |  AS-COLOCROSSING                 |  216.45.63.100    |  2025-10-03 01:50:18  |  dnsrdany
+44486        |  SYNLINQ Oliver Horscht is trad  |  109.71.253.185   |  2025-10-06 11:31:11  |  dnsrdany
+48090        |  DMZHOST TECHOFF SRV LIMITED     |  45.148.10.248    |  2025-10-06 05:55:27  |  dnsrdany
+48753        |  AVAHOHST AVA HOST SRL           |  85.121.148.144   |  2025-10-07 04:27:53  |  dnsrdany
+49581        |  FerdinandZink Ferdinand Zink t  |  80.75.212.46     |  2025-10-03 19:02:12  |  dnsrdany
+49581        |  FerdinandZink Ferdinand Zink t  |  91.212.121.24    |  2025-09-30 23:14:04  |  dnsrdany
+49592        |  PIPE-NET Pipe Networks LTD      |  92.42.201.26     |  2025-10-01 00:39:01  |  dnsrdany
+50028        |  EDGOO EDGOO NETWORKS UNIPESSOA  |  161.123.220.236  |  2025-10-01 01:02:50  |  dnsrdany
+51115        |  HLL-AS HLL LLC                  |  185.94.111.1     |  2025-10-07 08:31:35  |  dnsrdany
+51396        |  PFCLOUD Pfcloud UG              |  176.65.132.153   |  2025-10-04 00:21:39  |  dnsrdany
+51396        |  PFCLOUD Pfcloud UG              |  176.65.132.199   |  2025-10-07 00:15:18  |  dnsrdany
+51396        |  PFCLOUD Pfcloud UG              |  176.65.132.49    |  2025-10-04 02:45:07  |  dnsrdany
+51396        |  PFCLOUD Pfcloud UG              |  176.65.148.92    |  2025-10-02 16:41:20  |  dnsrdany
+51396        |  PFCLOUD Pfcloud UG              |  204.76.203.41    |  2025-10-04 22:06:55  |  dnsrdany
+51396        |  PFCLOUD Pfcloud UG              |  45.135.193.5     |  2025-10-01 14:43:31  |  dnsrdany
+51396        |  PFCLOUD Pfcloud UG              |  45.135.194.20    |  2025-10-04 22:06:55  |  dnsrdany
+51396        |  PFCLOUD Pfcloud UG              |  45.156.87.62     |  2025-10-05 18:31:48  |  dnsrdany
+51852        |  PLI-AS Private Layer INC        |  179.43.150.154   |  2025-10-06 16:56:23  |  dnsrdany
+53667        |  PONYNET                         |  107.189.7.83     |  2025-10-02 23:30:58  |  dnsrdany
+53667        |  PONYNET                         |  198.98.52.95     |  2025-10-02 17:49:55  |  dnsrdany
+53667        |  PONYNET                         |  199.195.254.152  |  2025-10-07 11:06:18  |  dnsrdany
+53667        |  PONYNET                         |  209.141.49.251   |  2025-10-01 03:20:18  |  dnsrdany
+53667        |  PONYNET                         |  209.141.53.162   |  2025-10-05 21:03:07  |  dnsrdany
+53667        |  PONYNET                         |  209.141.57.55    |  2025-09-30 20:11:45  |  dnsrdany
+54600        |  PEG-SV                          |  104.233.193.196  |  2025-09-30 21:18:35  |  dnsrdany
+54801        |  ZILLION-NETWORK                 |  154.213.187.112  |  2025-10-03 18:47:38  |  dnsrdany
+60068        |  CDN77 Datacamp Limited          |  121.127.41.137   |  2025-10-07 10:44:06  |  dnsrdany
+61087        |  DGTL-UK DGTL TECH UK LLP        |  94.141.120.6     |  2025-10-02 21:12:42  |  dnsrdany
+63949        |  AKAMAI-LINODE-AP Akamai Connec  |  172.105.11.254   |  2025-10-02 23:18:25  |  dnsrdany
+63949        |  AKAMAI-LINODE-AP Akamai Connec  |  45.79.163.48     |  2025-10-02 18:57:07  |  dnsrdany
+135953       |  BKHOST-AS-VN Vietnam Online Ne  |  103.130.213.238  |  2025-10-07 01:05:23  |  dnsrdany
+200590       |  asnls NLS Kazakhstan LLC        |  94.156.105.167   |  2025-10-07 01:33:49  |  dnsrdany
+201814       |  Mevspace MEVSPACE sp. z o.o.    |  185.16.39.29     |  2025-10-02 10:22:14  |  dnsrdany
+201814       |  Mevspace MEVSPACE sp. z o.o.    |  95.214.53.171    |  2025-10-03 01:50:18  |  dnsrdany
+206728       |  MEDIALAND-AS Media Land LLC     |  45.141.86.39     |  2025-10-04 00:25:52  |  dnsrdany
+209605       |  hostbaltic UAB Host Baltic      |  141.98.10.91     |  2025-10-07 03:45:17  |  dnsrdany
+209605       |  hostbaltic UAB Host Baltic      |  91.224.92.113    |  2025-10-06 08:13:53  |  dnsrdany
+209800       |  metaspinner-asn metaspinner ne  |  158.94.209.95    |  2025-10-04 16:24:13  |  dnsrdany
+210558       |  services-1337-gmbh 1337 Servic  |  185.241.208.159  |  2025-10-05 01:15:17  |  dnsrdany
+210558       |  services-1337-gmbh 1337 Servic  |  45.141.215.132   |  2025-10-07 10:26:00  |  dnsrdany
+212238       |  CDNEXT Datacamp Limited         |  89.222.103.65    |  2025-10-06 07:19:44  |  dnsrdany
+212271       |  C1V Cinzia Tocci trading as Lu  |  152.89.168.113   |  2025-10-01 08:31:57  |  dnsrdany
+212477       |  ROYALE-AS RoyaleHosting BV      |  45.90.13.253     |  2025-10-02 05:01:59  |  dnsrdany
+213438       |  colocatel-inc ColocaTel Inc.    |  5.253.86.21      |  2025-10-07 03:45:17  |  dnsrdany
+213613       |  BotShield-LTD BOTSHIELD LTD     |  109.236.61.23    |  2025-10-07 00:15:18  |  dnsrdany
+214481       |  wczapkowicz-as Wojciech Czapko  |  141.11.62.84     |  2025-10-06 20:41:06  |  dnsrdany
+215439       |  PLAY2GO-NET PLAY2GO INTERNATIO  |  87.120.166.231   |  2025-09-30 18:06:09  |  dnsrdany
+215703       |  FREAKHOSTING ALEXANDRU VLAD tr  |  46.203.233.66    |  2025-10-01 01:51:45  |  dnsrdany
+215925       |  VPSVAULTHOST VPSVAULT.HOST LTD  |  87.120.191.127   |  2025-10-07 00:15:18  |  dnsrdany
+215925       |  VPSVAULTHOST VPSVAULT.HOST LTD  |  87.120.191.128   |  2025-10-06 09:15:11  |  dnsrdany
+215925       |  VPSVAULTHOST VPSVAULT.HOST LTD  |  87.120.191.37    |  2025-10-04 22:06:55  |  dnsrdany
+215925       |  VPSVAULTHOST VPSVAULT.HOST LTD  |  87.121.84.209    |  2025-10-07 03:49:43  |  dnsrdany
+215925       |  VPSVAULTHOST VPSVAULT.HOST LTD  |  87.121.84.23     |  2025-10-07 11:39:51  |  dnsrdany
+215925       |  VPSVAULTHOST VPSVAULT.HOST LTD  |  87.121.84.45     |  2025-10-01 09:41:43  |  dnsrdany
+396356       |  LATITUDE-SH                     |  103.219.170.101  |  2025-10-07 03:45:17  |  dnsrdany
+396356       |  LATITUDE-SH                     |  185.26.10.225    |  2025-10-03 01:50:18  |  dnsrdany
+396356       |  LATITUDE-SH                     |  64.34.86.1       |  2025-10-04 02:50:21  |  dnsrdany
+396982       |  GOOGLE-CLOUD-PLATFORM           |  216.180.246.10   |  2025-10-07 10:31:23  |  dnsrdany
+396982       |  GOOGLE-CLOUD-PLATFORM           |  216.180.246.101  |  2025-10-05 23:56:59  |  dnsrdany
+396982       |  GOOGLE-CLOUD-PLATFORM           |  216.180.246.105  |  2025-10-07 07:06:45  |  dnsrdany
+396982       |  GOOGLE-CLOUD-PLATFORM           |  216.180.246.107  |  2025-10-05 04:02:07  |  dnsrdany
+396982       |  GOOGLE-CLOUD-PLATFORM           |  216.180.246.11   |  2025-10-06 02:00:12  |  dnsrdany
+396982       |  GOOGLE-CLOUD-PLATFORM           |  216.180.246.110  |  2025-10-06 03:43:01  |  dnsrdany
+396982       |  GOOGLE-CLOUD-PLATFORM           |  216.180.246.112  |  2025-10-05 23:07:26  |  dnsrdany
+396982       |  GOOGLE-CLOUD-PLATFORM           |  216.180.246.113  |  2025-10-06 22:35:55  |  dnsrdany
+396982       |  GOOGLE-CLOUD-PLATFORM           |  216.180.246.114  |  2025-10-06 22:42:59  |  dnsrdany
+396982       |  GOOGLE-CLOUD-PLATFORM           |  216.180.246.115  |  2025-10-07 06:47:42  |  dnsrdany
+396982       |  GOOGLE-CLOUD-PLATFORM           |  216.180.246.117  |  2025-10-07 07:29:45  |  dnsrdany
+396982       |  GOOGLE-CLOUD-PLATFORM           |  216.180.246.118  |  2025-10-07 10:43:36  |  dnsrdany
+396982       |  GOOGLE-CLOUD-PLATFORM           |  216.180.246.12   |  2025-10-05 17:29:23  |  dnsrdany
+396982       |  GOOGLE-CLOUD-PLATFORM           |  216.180.246.120  |  2025-10-07 11:50:54  |  dnsrdany
+396982       |  GOOGLE-CLOUD-PLATFORM           |  216.180.246.121  |  2025-10-07 05:26:05  |  dnsrdany
+396982       |  GOOGLE-CLOUD-PLATFORM           |  216.180.246.122  |  2025-10-07 04:12:09  |  dnsrdany
+396982       |  GOOGLE-CLOUD-PLATFORM           |  216.180.246.124  |  2025-09-30 12:32:35  |  dnsrdany
+396982       |  GOOGLE-CLOUD-PLATFORM           |  216.180.246.126  |  2025-10-07 06:48:32  |  dnsrdany
+396982       |  GOOGLE-CLOUD-PLATFORM           |  216.180.246.129  |  2025-10-04 20:14:54  |  dnsrdany
+396982       |  GOOGLE-CLOUD-PLATFORM           |  216.180.246.131  |  2025-10-07 06:21:41  |  dnsrdany
+396982       |  GOOGLE-CLOUD-PLATFORM           |  216.180.246.134  |  2025-10-07 11:46:28  |  dnsrdany
+396982       |  GOOGLE-CLOUD-PLATFORM           |  216.180.246.135  |  2025-10-07 07:03:18  |  dnsrdany
+396982       |  GOOGLE-CLOUD-PLATFORM           |  216.180.246.139  |  2025-10-07 05:03:40  |  dnsrdany
+396982       |  GOOGLE-CLOUD-PLATFORM           |  216.180.246.14   |  2025-10-07 10:20:43  |  dnsrdany
+396982       |  GOOGLE-CLOUD-PLATFORM           |  216.180.246.141  |  2025-09-30 13:13:05  |  dnsrdany
+396982       |  GOOGLE-CLOUD-PLATFORM           |  216.180.246.142  |  2025-09-30 13:16:50  |  dnsrdany
+396982       |  GOOGLE-CLOUD-PLATFORM           |  216.180.246.143  |  2025-10-05 04:53:28  |  dnsrdany
+396982       |  GOOGLE-CLOUD-PLATFORM           |  216.180.246.144  |  2025-10-06 21:44:56  |  dnsrdany
+396982       |  GOOGLE-CLOUD-PLATFORM           |  216.180.246.146  |  2025-10-06 21:20:33  |  dnsrdany
+396982       |  GOOGLE-CLOUD-PLATFORM           |  216.180.246.150  |  2025-10-07 08:29:47  |  dnsrdany
+396982       |  GOOGLE-CLOUD-PLATFORM           |  216.180.246.151  |  2025-10-07 05:19:28  |  dnsrdany
+396982       |  GOOGLE-CLOUD-PLATFORM           |  216.180.246.156  |  2025-10-04 12:27:08  |  dnsrdany
+396982       |  GOOGLE-CLOUD-PLATFORM           |  216.180.246.159  |  2025-10-05 19:47:27  |  dnsrdany
+396982       |  GOOGLE-CLOUD-PLATFORM           |  216.180.246.160  |  2025-10-07 04:09:23  |  dnsrdany
+396982       |  GOOGLE-CLOUD-PLATFORM           |  216.180.246.163  |  2025-09-30 13:27:56  |  dnsrdany
+396982       |  GOOGLE-CLOUD-PLATFORM           |  216.180.246.164  |  2025-10-07 10:22:40  |  dnsrdany
+396982       |  GOOGLE-CLOUD-PLATFORM           |  216.180.246.168  |  2025-10-07 10:07:26  |  dnsrdany
+396982       |  GOOGLE-CLOUD-PLATFORM           |  216.180.246.171  |  2025-10-07 05:59:25  |  dnsrdany
+396982       |  GOOGLE-CLOUD-PLATFORM           |  216.180.246.176  |  2025-10-07 10:11:04  |  dnsrdany
+396982       |  GOOGLE-CLOUD-PLATFORM           |  216.180.246.177  |  2025-10-07 11:12:30  |  dnsrdany
+396982       |  GOOGLE-CLOUD-PLATFORM           |  216.180.246.184  |  2025-10-06 04:10:38  |  dnsrdany
+396982       |  GOOGLE-CLOUD-PLATFORM           |  216.180.246.185  |  2025-10-07 01:01:13  |  dnsrdany
+396982       |  GOOGLE-CLOUD-PLATFORM           |  216.180.246.187  |  2025-10-06 05:09:34  |  dnsrdany
+396982       |  GOOGLE-CLOUD-PLATFORM           |  216.180.246.188  |  2025-10-06 22:59:59  |  dnsrdany
+396982       |  GOOGLE-CLOUD-PLATFORM           |  216.180.246.19   |  2025-09-30 15:44:19  |  dnsrdany
+396982       |  GOOGLE-CLOUD-PLATFORM           |  216.180.246.192  |  2025-10-07 11:57:12  |  dnsrdany
+396982       |  GOOGLE-CLOUD-PLATFORM           |  216.180.246.194  |  2025-10-07 06:30:26  |  dnsrdany
+396982       |  GOOGLE-CLOUD-PLATFORM           |  216.180.246.196  |  2025-10-06 13:39:33  |  dnsrdany
+396982       |  GOOGLE-CLOUD-PLATFORM           |  216.180.246.20   |  2025-10-07 08:30:42  |  dnsrdany
+396982       |  GOOGLE-CLOUD-PLATFORM           |  216.180.246.23   |  2025-10-07 07:58:07  |  dnsrdany
+396982       |  GOOGLE-CLOUD-PLATFORM           |  216.180.246.24   |  2025-09-30 13:29:53  |  dnsrdany
+396982       |  GOOGLE-CLOUD-PLATFORM           |  216.180.246.25   |  2025-10-07 08:43:49  |  dnsrdany
+396982       |  GOOGLE-CLOUD-PLATFORM           |  216.180.246.30   |  2025-10-01 00:13:57  |  dnsrdany
+396982       |  GOOGLE-CLOUD-PLATFORM           |  216.180.246.39   |  2025-10-07 10:26:52  |  dnsrdany
+396982       |  GOOGLE-CLOUD-PLATFORM           |  216.180.246.40   |  2025-10-07 07:03:37  |  dnsrdany
+396982       |  GOOGLE-CLOUD-PLATFORM           |  216.180.246.42   |  2025-10-07 07:02:41  |  dnsrdany
+396982       |  GOOGLE-CLOUD-PLATFORM           |  216.180.246.44   |  2025-10-07 10:38:42  |  dnsrdany
+396982       |  GOOGLE-CLOUD-PLATFORM           |  216.180.246.46   |  2025-10-06 11:17:55  |  dnsrdany
+396982       |  GOOGLE-CLOUD-PLATFORM           |  216.180.246.47   |  2025-09-30 12:45:25  |  dnsrdany
+396982       |  GOOGLE-CLOUD-PLATFORM           |  216.180.246.5    |  2025-09-30 18:46:32  |  dnsrdany
+396982       |  GOOGLE-CLOUD-PLATFORM           |  216.180.246.50   |  2025-10-07 08:50:03  |  dnsrdany
+396982       |  GOOGLE-CLOUD-PLATFORM           |  216.180.246.52   |  2025-10-06 00:21:01  |  dnsrdany
+396982       |  GOOGLE-CLOUD-PLATFORM           |  216.180.246.56   |  2025-09-30 19:06:50  |  dnsrdany
+396982       |  GOOGLE-CLOUD-PLATFORM           |  216.180.246.58   |  2025-10-05 18:48:18  |  dnsrdany
+396982       |  GOOGLE-CLOUD-PLATFORM           |  216.180.246.59   |  2025-10-06 08:08:20  |  dnsrdany
+396982       |  GOOGLE-CLOUD-PLATFORM           |  216.180.246.6    |  2025-10-07 05:52:17  |  dnsrdany
+396982       |  GOOGLE-CLOUD-PLATFORM           |  216.180.246.60   |  2025-10-07 08:26:52  |  dnsrdany
+396982       |  GOOGLE-CLOUD-PLATFORM           |  216.180.246.61   |  2025-10-06 15:32:26  |  dnsrdany
+396982       |  GOOGLE-CLOUD-PLATFORM           |  216.180.246.64   |  2025-10-06 20:02:35  |  dnsrdany
+396982       |  GOOGLE-CLOUD-PLATFORM           |  216.180.246.65   |  2025-10-06 08:16:48  |  dnsrdany
+396982       |  GOOGLE-CLOUD-PLATFORM           |  216.180.246.66   |  2025-10-07 08:29:09  |  dnsrdany
+396982       |  GOOGLE-CLOUD-PLATFORM           |  216.180.246.69   |  2025-10-07 01:57:52  |  dnsrdany
+396982       |  GOOGLE-CLOUD-PLATFORM           |  216.180.246.70   |  2025-10-07 08:33:17  |  dnsrdany
+396982       |  GOOGLE-CLOUD-PLATFORM           |  216.180.246.71   |  2025-10-07 09:00:49  |  dnsrdany
+396982       |  GOOGLE-CLOUD-PLATFORM           |  216.180.246.72   |  2025-10-04 12:18:59  |  dnsrdany
+396982       |  GOOGLE-CLOUD-PLATFORM           |  216.180.246.75   |  2025-10-07 11:41:39  |  dnsrdany
+396982       |  GOOGLE-CLOUD-PLATFORM           |  216.180.246.77   |  2025-09-30 12:41:56  |  dnsrdany
+396982       |  GOOGLE-CLOUD-PLATFORM           |  216.180.246.79   |  2025-10-07 05:37:44  |  dnsrdany
+396982       |  GOOGLE-CLOUD-PLATFORM           |  216.180.246.8    |  2025-10-05 03:50:57  |  dnsrdany
+396982       |  GOOGLE-CLOUD-PLATFORM           |  216.180.246.81   |  2025-10-05 04:26:39  |  dnsrdany
+396982       |  GOOGLE-CLOUD-PLATFORM           |  216.180.246.82   |  2025-10-07 07:01:48  |  dnsrdany
+396982       |  GOOGLE-CLOUD-PLATFORM           |  216.180.246.87   |  2025-10-07 00:07:43  |  dnsrdany
+396982       |  GOOGLE-CLOUD-PLATFORM           |  216.180.246.88   |  2025-09-30 15:11:04  |  dnsrdany
+396982       |  GOOGLE-CLOUD-PLATFORM           |  216.180.246.89   |  2025-10-07 11:31:28  |  dnsrdany
+396982       |  GOOGLE-CLOUD-PLATFORM           |  216.180.246.9    |  2025-10-07 07:37:04  |  dnsrdany
+396982       |  GOOGLE-CLOUD-PLATFORM           |  216.180.246.92   |  2025-10-07 05:17:49  |  dnsrdany
+396982       |  GOOGLE-CLOUD-PLATFORM           |  216.180.246.96   |  2025-10-07 08:46:33  |  dnsrdany
+396982       |  GOOGLE-CLOUD-PLATFORM           |  216.180.246.99   |  2025-09-30 14:16:47  |  dnsrdany
+396982       |  GOOGLE-CLOUD-PLATFORM           |  34.170.177.119   |  2025-10-03 23:34:48  |  dnsrdany
+399045       |  DEDIOUTLET-NETWORKS             |  74.84.150.66     |  2025-10-02 12:31:17  |  dnsrdany
+401120       |  CHEAPY-HOST                     |  196.251.87.214   |  2025-10-01 00:39:01  |  dnsrdany
+401120       |  CHEAPY-HOST                     |  196.251.88.75    |  2025-10-07 07:28:30  |  dnsrdany
+401608       |  ALTIVOX-NETWORKS                |  23.135.20.163    |  2025-10-07 02:05:32  |  dnsrdany
+NA           |  NA                              |  87.120.117.29    |  2025-10-06 23:49:07  |  dnsrdany
+NA           |  NA                              |  91.92.245.45     |  2025-10-01 04:03:32  |  dnsrdany
+NA           |  NA                              |  94.156.177.127   |  2025-10-04 17:32:04  |  dnsrdany
+#
+# Statistics
+#        ASNs: 52
+#   Addresses: 174

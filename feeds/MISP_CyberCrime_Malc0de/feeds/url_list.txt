@@ -1,0 +1,16 @@
+
+#####################################################
+#               MalSilo URL feed                    #
+#####################################################
+#                                                   #
+# Dataset generated @ 2022-12-01 11:30:04 (UTC)     #
+#                                                   #
+# Use the data at your own risk, for any            #
+# re-publishing or integration into other           #
+# datasets please contact malsilo [at] tuta .io     #
+#                                                   #
+#####################################################
+#
+# Firstseen,Lastseen,url,threat,tags 
+"2022-10-24","2022-10-24","http://clipper.guru/bot/online","tasker","peexe32,pegui,assembly"
+"2022-10-24","2022-10-24","http://clipper.guru/bot/regex","tasker","peexe32,pegui,assembly"
