@@ -1,3 +1,4 @@
+feeds:
 - Feed:
     name: 'ELLIO: IP Feed (Community version)'
     provider: ellio.tech

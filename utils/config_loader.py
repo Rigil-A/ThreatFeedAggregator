@@ -1,38 +1,47 @@
-import yaml
-import os
+from utils.config import config
+from models.feed_config import FeedConfigModel, FeedSettings
+import json
 
-class Config:
-    def __init__(self, path="config/config.yaml"):
-        self.path = path
-        self._config = self._load_yaml()
-        
-    def _load_yaml(self):
-        if not os.path.exists(self.path):
-            self._create_default_config()
-        
-        with open(self.path, "r", encoding="utf-8") as f:
-            return yaml.safe_load(f)
-    
-    def _create_default_config(self):
-        """Create default config file if it doesn't exist"""
-        os.makedirs(os.path.dirname(self.path) of ".", exist_ok=True)
-        default_config = {
-            "app": {
-                "name": "ThreatFeedAggregator",
-                "version": "1.0.0"
-            }
-            # Để sẵn, sau này ông sẽ đưa list feed vào đây
-            "feeds": []
-        
-    def get(self, *keys, default=None):
-         """Create default config file if it doesn't exist"""
-        data = self._config
-        for key in keys:
-            if isinstance(data, dict) and key in data:
-                data = data[key]
-            else:
-                return default
-            
-        return data
-#Tạo instance global để import nhanh    
-config = Config()
+def load_feeds():
+    feeds_raw = config.get("feeds", default=[]) or []
+    feeds = []
+
+    for entry in feeds_raw:
+        feed_data = entry.get("Feed", {})
+        tag_data = entry.get("Tag", {})
+
+        if not feed_data.get("enabled", False):
+            continue
+
+        raw_settings = feed_data.get("settings", "{}").strip('"')
+        try:
+            settings_obj = json.loads(raw_settings)
+        except:
+            settings_obj = {}
+
+        csv_conf = settings_obj.get("csv", {})
+        common_conf = settings_obj.get("common", {})
+
+        csv_value = csv_conf.get("value", "")
+        indexes = [int(x) for x in csv_value.split(",") if x.isdigit()]
+
+        feed_settings = FeedSettings(
+            csv_indexes=indexes,
+            csv_delimiter=csv_conf.get("delimiter", ","),
+            exclude_regex=common_conf.get("excluderegex")
+        )
+
+        feeds.append(
+            FeedConfigModel(
+                name=feed_data.get("name"),
+                provider=feed_data.get("provider"),
+                url=feed_data["url"],
+                enabled=True,
+                source_format=feed_data.get("source_format", "freetext"),
+                input_source=feed_data.get("input_source", "network"),
+                settings=feed_settings,
+                tag_name=tag_data.get("name")
+            )
+        )
+
+    return feeds
