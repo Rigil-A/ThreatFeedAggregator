@@ -11,7 +11,7 @@ SOURCES = [
     "https://malc0de.com/database/"                               
 ]
 
-OUT_CSV = "aggregated_malc0de.csv"
+OUT_CSV = "data/raw/aggregated_malc0de.csv"
 TIMEOUT = 20
 
 def fetch_text(url):
