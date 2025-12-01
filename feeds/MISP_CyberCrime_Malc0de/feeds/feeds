@@ -1,0 +1,1161 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+  <head>
+    <meta charset="utf-8">
+<meta name="robots" content="all,follow">
+<meta name="googlebot" content="index,follow,snippet,archive">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>MISP Default Feeds</title>
+<meta name="author" content="MISP" />
+
+
+
+
+<meta name="keywords" content="MISP, CTI, malware, threat, cyber, intelligence, information exchange, sharing, open source, MISP threat sharing, Malware Information Sharing Platform, Threat Intelligence Platform, TIP, information sharing, threatintel">
+
+
+<meta name="description" content="MISP Threat Intelligence &amp; Sharing">
+
+<meta name="generator" content="Hugo 0.151.0">
+
+
+<link href='//fonts.googleapis.com/css?family=Roboto:400,100,100italic,300,300italic,500,700,800' rel='stylesheet' type='text/css'>
+
+
+<link rel="stylesheet" href="//use.fontawesome.com/releases/v5.11.2/css/all.css">
+<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+
+<link href="/css/animate.css" rel="stylesheet">
+
+
+
+  <link href="/css/style.default.css" rel="stylesheet" id="theme-stylesheet">
+
+
+
+<link href="/css/custom.css" rel="stylesheet">
+
+
+
+  <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+  <![endif]-->
+
+
+
+<link rel="shortcut icon" href="/img/favicon.ico" type="image/x-icon" />
+<link rel="apple-touch-icon" href="/img/apple-touch-icon.png" />
+
+
+<link href="/css/owl.carousel.css" rel="stylesheet">
+<link href="/css/owl.theme.css" rel="stylesheet">
+
+
+<link rel="alternate" href="https://www.misp-project.org/feed.xml" type="application/rss+xml" title="MISP Open Source Threat Intelligence Platform &amp; Open Standards For Threat Information Sharing">
+
+
+
+
+
+
+
+
+<meta property="og:locale" content="en_us">
+<meta property="og:site_name" content="MISP Open Source Threat Intelligence Platform &amp; Open Standards For Threat Information Sharing">
+<meta property="og:title" content="MISP Default Feeds">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://www.misp-project.org/feeds/" />
+<meta property="og:description" content="MISP Threat Intelligence &amp; Sharing">
+<meta property="og:image" content="https://www.misp-project.org/img/sharing-default.png">
+<meta property="og:image:type" content="image/png">
+
+
+
+  <meta property="og:image:width" content="800">
+  <meta property="og:image:height" content="420">
+
+
+
+
+
+
+<meta name="twitter:card" content="summary">
+<meta name="twitter:site" content="@MISPProject">
+<meta name="twitter:title" content="MISP Default Feeds">
+
+<meta name="twitter:image" content="https://www.misp-project.org/img/sharing-default.png">
+
+<meta name="twitter:description" content="MISP Threat Intelligence &amp; Sharing">
+
+
+    
+  </head>
+
+  <body>
+
+    <div id="all">
+
+        
+<header>
+  <div id="top">
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-5">
+                
+        </div>
+        <div class="col-xs-7">
+          <div class="social">
+            
+            <a href="/documentation" target="_blank" style="opacity: 1;"><i class='fas fa-2x fa-book'></i></a>
+            
+            <a href="https://github.com/MISP/" target="_blank" style="opacity: 1;"><i class='fab fa-2x fa-github'></i></a>
+            
+            <a href="https://gitter.im/MISP/MISP" target="_blank" style="opacity: 1;"><i class='fab fa-2x fa-gitter'></i></a>
+            
+            <a href="https://twitter.com/MISPProject" target="_blank" style="opacity: 1;"><i class='fab fa-2x fa-twitter'></i></a>
+            
+            <a href="mailto:info@misp-project.org" target="_blank" style="opacity: 1;"><i class='fas fa-2x fa-envelope'></i></a>
+            
+            <a href="/feed.xml" target="_blank" style="opacity: 1;"><i class='fas fa-2x fa-rss'></i></a>
+            
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+
+
+        <header class="navbar-affixed-top" data-spy="affix" data-offset-top="62">
+    <div class="navbar navbar-default yamm" role="navigation" id="navbar">    
+        <div class="container">
+            <div class="navbar-header">
+                <a class="navbar-brand home" href="/">
+                    
+                      <img src="/img/logo.png" alt="MISP Default Feeds logo" class="hidden-xs hidden-sm" />
+                      <img src="/img/logo-small.png" alt="MISP Default Feeds logo" class="visible-xs visible-sm" />
+                    
+                    <span class="sr-only">MISP Default Feeds - go to homepage</span>
+                </a>
+                <div class="navbar-buttons">
+                    <button type="button" class="navbar-toggle btn-template-main" data-toggle="collapse" data-target="#navigation">
+                      <span class="sr-only">Toggle Navigation</span>
+                        <i class="fas fa-align-justify"></i>
+                    </button>
+                </div>
+            </div>
+            
+
+            <div class="navbar-collapse collapse" id="navigation">
+                <ul class="nav navbar-nav navbar-right">
+                  
+                  
+                  
+                  
+                  
+
+                  
+
+                  
+
+                  
+
+                  
+                  <li class="dropdown ">
+                    <a href="/">Home</a>
+                  </li>
+                  
+                  
+                  
+                  
+
+                  
+
+                  
+
+                  
+
+                  
+                  <li class="dropdown ">
+                    <a href="/features/">Features</a>
+                  </li>
+                  
+                  
+                  
+                  
+
+                  
+
+                  
+
+                  
+
+                  
+                    
+                    
+                    <li class="dropdown use-yamm yamm-fw ">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Data Models <span class="caret"></span></a>
+                        
+                        <ul class="dropdown-menu">
+                            <li>
+                            <div class="yamm-content">
+                            <div class="row">
+                                
+                                <div class="col-sm-6">
+                                    <img src="/img/misp-standard.png" class="img-responsive hidden-xs"/>
+                                </div>
+                                
+                                <div class="col-sm-3">
+                                <ul>
+                                
+                                    
+                                    
+                                    
+                                    <li><a href="/datamodels/">Data Models</a></li>
+                                    
+                                    
+                                
+                                    
+                                    
+                                    
+                                    <li><a href="/datamodels/#misp-core-format">MISP core format</a></li>
+                                    
+                                    
+                                
+                                    
+                                    
+                                    
+                                    <li><a href="/datamodels/#misp-taxonomies">MISP taxonomies</a></li>
+                                    
+                                    
+                                
+                                    
+                                    
+                                    
+                                    <li><a href="/datamodels/#misp-galaxy">MISP Galaxy</a></li>
+                                    
+                                    
+                                
+                                    
+                                    
+                                    
+                                    <li><a href="/datamodels/#misp-objects">MISP Objects</a></li>
+                                    
+                                    
+                                
+                                    
+                                    
+                                    
+                                    <li><a href="/feeds/">Default feeds</a></li>
+                                    
+                                    
+                                
+                                </ul>
+                                </div>
+                                <div class="col-sm-3">
+                                <ul>
+                                
+                                    
+                                    
+                                
+                                    
+                                    
+                                
+                                    
+                                    
+                                
+                                    
+                                    
+                                
+                                    
+                                    
+                                
+                                    
+                                    
+                                
+                                </ul>
+                                </div>
+                                
+                            </div>
+                            </div>
+                            </li>
+                        </ul>
+                        
+                    </li>
+                  
+                  
+                  
+                  
+
+                  
+
+                  
+
+                  
+
+                  
+                    
+                    
+                    <li class="dropdown use-yamm yamm-fw ">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Documentation <span class="caret"></span></a>
+                        
+                        <ul class="dropdown-menu">
+                            <li>
+                            <div class="yamm-content">
+                            <div class="row">
+                                
+                                <div class="col-sm-6">
+                                    <img src="/img/menu-book.png" class="img-responsive hidden-xs"/>
+                                </div>
+                                
+                                <div class="col-sm-3">
+                                <ul>
+                                
+                                    
+                                    
+                                    
+                                    <h5>Documentation</h5>
+                                    <ul>
+                                    
+                                    <li><a href="/documentation/">Documentation</a></li>
+                                    <li><a href="/documentation/openapi.html">OpenAPI</a></li>
+                                    <li><a href="/tools/">Tools</a></li>
+                                    <li><a href="/support/">Support</a></li>
+                                    <li><a href="/contributing/">Contributing</a></li>
+                                    <li><a href="/research-projects/">Research projects</a></li>
+                                    <li><a href="/research-topics/">Research topics</a></li>
+                                    </ul>
+                                    
+                                    
+                                
+                                    
+                                    
+                                
+                                </ul>
+                                </div>
+                                <div class="col-sm-3">
+                                <ul>
+                                
+                                    
+                                    
+                                
+                                    
+                                    
+                                    
+                                    <h5>Legal</h5>
+                                    <ul>
+                                    
+                                    <li><a href="/license/">License</a></li>                                
+                                    
+                                    <li><a href="/compliance/">Legal and policy</a></li>                                
+                                    
+                                    <li><a href="/compliance/gdpr">GDPR</a></li>                                
+                                    
+                                    <li><a href="/compliance/iso-iec-27010/">ISO/IEC 27010:2015</a></li>                                
+                                    
+                                    <li><a href="/compliance/nisd">NISD</a></li>                                
+                                    
+                                    </ul>
+                                    
+                                    
+                                
+                                </ul>
+                                </div>
+                                
+                            </div>
+                            </div>
+                            </li>
+                        </ul>
+                        
+                    </li>
+                  
+                  
+                  
+                  
+
+                  
+
+                  
+
+                  
+
+                  
+                  <li class="dropdown ">
+                    <a href="/communities/">Communities</a>
+                  </li>
+                  
+                  
+                  
+                  
+
+                  
+
+                  
+
+                  
+
+                  
+                  <li class="dropdown ">
+                    <a href="/download/">Download</a>
+                  </li>
+                  
+                  
+                  
+                  
+
+                  
+
+                  
+
+                  
+
+                  
+                    
+                    
+                    <li class="dropdown ">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Events <span class="caret"></span></a>
+                        
+                        <ul class="dropdown-menu">
+                            
+                            <li><a href="/events/">Upcoming events</a></li>
+                            
+                            <li><a href="/past-events/">Past events</a></li>
+                            
+                            <li><a href="/events-webinar/">Webinars</a></li>
+                            
+                            <li><a href="/hackathon/">Hackathon</a></li>
+                            
+                            <li><a href="/misp-summit/">MISP Summit</a></li>
+                            
+                        </ul>
+                        
+                    </li>
+                  
+                  
+                  
+                  
+
+                  
+
+                  
+
+                  
+
+                  
+                  <li class="dropdown ">
+                    <a href="/blog/">News</a>
+                  </li>
+                  
+                  
+                  
+                  
+
+                  
+
+                  
+
+                  
+
+                  
+                    
+                    
+                    <li class="dropdown use-yamm yamm-fw ">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Contact <span class="caret"></span></a>
+                        
+                        <ul class="dropdown-menu">
+                            <li>
+                            <div class="yamm-content">
+                            <div class="row">
+                                
+                                <div class="col-sm-6">
+                                    <img src="/img/menu-contact.png" class="img-responsive hidden-xs"/>
+                                </div>
+                                
+                                <div class="col-sm-3">
+                                <ul>
+                                
+                                    
+                                    
+                                    
+                                    <h5>Reaching us</h5>
+                                    <ul>
+                                    
+                                    <li><a href="/support/">Contact Us</a></li>
+                                    <li><a href="/press/">Press inquiries</a></li>
+                                    <li><a href="/professional-services/">Professional Services</a></li>
+                                    <li><a href="/commercial-support/">Commercial Support</a></li>
+                                    <li><a href="/security/">Security Matters</a></li>
+                                    </ul>
+                                    
+                                    
+                                
+                                    
+                                    
+                                
+                                </ul>
+                                </div>
+                                <div class="col-sm-3">
+                                <ul>
+                                
+                                    
+                                    
+                                
+                                    
+                                    
+                                    
+                                    <h5>Who are we?</h5>
+                                    <ul>
+                                    
+                                    <li><a href="/who/">The core team</a></li>                                
+                                    
+                                    <li><a href="/contributors/">Contributors</a></li>                                
+                                    
+                                    <li><a href="/governance/">Governance</a></li>                                
+                                    
+                                    </ul>
+                                    
+                                    
+                                
+                                </ul>
+                                </div>
+                                
+                            </div>
+                            </div>
+                            </li>
+                        </ul>
+                        
+                    </li>
+                  
+                  
+                </ul>
+            </div>
+            
+
+            <div class="collapse clearfix" id="search">    
+                <form class="navbar-form" role="search">
+                    <div class="input-group">
+                        <input type="text" class="form-control" placeholder="Search">
+                        <span class="input-group-btn">
+                    <button type="submit" class="btn btn-template-main"><i class="fas fa-search"></i></button>
+                </span>
+                    </div>
+                </form>
+            </div>
+            
+        </div>
+    </div>
+</header>
+
+
+
+
+        <div id="heading-breadcrumbs">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h1>MISP Default Feeds</h1>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+        <div id="content">
+            <div class="container">
+
+                <div class="row">
+
+                    
+
+                    <div class="col-md-9" id="blog-post">
+
+                        
+                        
+                        <div id="post-content">
+                          <p>MISP includes a set of public OSINT feeds in its default configuration. The feeds can
+be used as a source of correlations for all of your events and attributes without the need to
+import them directly into your system. The MISP feed system allows for fast correlation but also
+a for quick comparisons of the feeds against one another.</p>
+<p>The feeds can be in three different formats:</p>
+<ul>
+<li><a href="https://github.com/MISP/misp-rfc/blob/master/misp-core-format/raw.md.txt">MISP standardized format</a> which is the preferred format to benefit from all the MISP functionalities.</li>
+<li>CSV format, allowing you to pick the columns that are to be imported.</li>
+<li>freetext format which allows automatic ingestion and detection of indicator/attribute by parsing any unstructured text.</li>
+</ul>
+<p>and located in different input transports:</p>
+<ul>
+<li>Network (URL)</li>
+<li>Local (file)</li>
+</ul>
+<h2 id="default-feeds-available-in-misp">Default feeds available in MISP</h2>
+<p>The default feeds are described in a <a href="https://github.com/MISP/MISP/blob/2.4/app/files/feed-metadata/defaults.json">simple JSON format</a>. The default feeds and the current version of MISP are the following:</p>
+<ul>
+<li><a href="https://sslbl.abuse.ch/blacklist/sslblacklist.csv">abuse.ch SSL IPBL</a> - abuse.ch - feed format: csv</li>
+<li><a href="https://reputation.alienvault.com/reputation.generic">alienvault reputation generic</a> - .alienvault.com - feed format: csv</li>
+<li><a href="https://osint.bambenekconsulting.com/feeds/dga-feed-high.csv">All current domains belonging to known malicious DGAs</a> - osint.bambenekconsulting.com - feed format: csv</li>
+<li><a href="https://lists.blocklist.de/lists/all.txt">blocklist.de/lists/all.txt</a> - blocklist.de - feed format: freetext</li>
+<li><a href="https://blocklist.greensnow.co/greensnow.txt">blocklist.greensnow.co</a> - greensnow.co - feed format: csv</li>
+<li><a href="https://rules.emergingthreats.net/blockrules/compromised-ips.txt">blockrules of rules.emergingthreats.net</a> - rules.emergingthreats.net - feed format: csv</li>
+<li><a href="https://cinsscore.com/list/ci-badguys.txt">ci-badguys.txt</a> - cinsscore.com - feed format: freetext</li>
+<li><a href="https://www.circl.lu/doc/misp/feed-osint">CIRCL OSINT Feed</a> - CIRCL - feed format: misp</li>
+<li><a href="https://cybercrime-tracker.net/all.php">cybercrime-tracker.net - all</a> - cybercrime-tracker.net - feed format: freetext</li>
+<li><a href="https://api.cybercure.ai/feed/get_url?type=csv">CyberCure - Blocked URL Feed</a> - <a href="https://www.cybercure.ai">www.cybercure.ai</a> - feed format: csv</li>
+<li><a href="https://api.cybercure.ai/feed/get_hash?type=csv">CyberCure - Hash Feed</a> - <a href="https://www.cybercure.ai">www.cybercure.ai</a> - feed format: csv</li>
+<li><a href="https://api.cybercure.ai/feed/get_ips?type=csv">CyberCure - IP Feed</a> - <a href="https://www.cybercure.ai">www.cybercure.ai</a> - feed format: csv</li>
+<li><a href="https://raw.githubusercontent.com/pan-unit42/iocs/master/diamondfox/diamondfox_panels.txt">diamondfox_panels</a> - pan-unit42 - feed format: freetext</li>
+<li><a href="https://osint.digitalside.it/Threat-Intel/digitalside-misp-feed/">DigitalSide Threat-Intel OSINT Feed</a> - osint.digitalside.it - feed format: misp</li>
+<li><a href="https://dataplane.org/dnsversion.txt">DNS CH TXT version.bind</a> - dataplane.org - feed format: csv</li>
+<li><a href="https://dataplane.org/dnsrdany.txt">DNS recursion desired IN ANY</a> - dataplane.org - feed format: csv</li>
+<li><a href="https://dataplane.org/dnsrd.txt">DNS recursion desired</a> - dataplane.org - feed format: csv</li>
+<li><a href="https://osint.bambenekconsulting.com/feeds/c2-dommasterlist-high.txt">Domains from High-Confidence DGA-based C&amp;C Domains Actively Resolving</a> - osint.bambenekconsulting.com - feed format: csv</li>
+<li><a href="https://cdn.ellio.tech/community-feed">ELLIO: IP Feed (Community version)</a> - ellio.tech - feed format: freetext</li>
+<li><a href="https://feodotracker.abuse.ch/downloads/ipblocklist.csv">Feodo IP Blocklist</a> - abuse.ch - feed format: csv</li>
+<li><a href="https://raw.githubusercontent.com/ktsaou/blocklist-ipsets/master/firehol_level1.netset">firehol_level1</a> - iplists.firehol.org - feed format: freetext</li>
+<li><a href="https://cybercrime-tracker.net/ccamgate.php">http://cybercrime-tracker.net gatelist</a> - <a href="http://cybercrime-tracker.net">http://cybercrime-tracker.net</a> gatelist - feed format: freetext</li>
+<li><a href="https://cybercrime-tracker.net/ccamlist.php">http://cybercrime-tracker.net hashlist</a> - <a href="http://cybercrime-tracker.net">http://cybercrime-tracker.net</a> hashlist - feed format: freetext</li>
+<li><a href="https://raw.githubusercontent.com/infobloxopen/threat-intelligence/main/indicators/misp">Infoblox-Threat-Intelligence</a> - infoblox.com - feed format: misp</li>
+<li><a href="https://dataplane.org/proto41.txt">IP protocol 41</a> - dataplane.org - feed format: csv</li>
+<li><a href="https://snort.org/downloads/ip-block-list">ip-block-list - snort.org</a> - <a href="https://snort.org">https://snort.org</a> - feed format: freetext</li>
+<li><a href="https://osint.bambenekconsulting.com/feeds/c2-ipmasterlist-high.txt">IPs from High-Confidence DGA-Based C&amp;Cs Actively Resolving - requires a valid license</a> - osint.bambenekconsulting.com - feed format: csv</li>
+<li><a href="http://www.ipspamlist.com/public_feeds.csv">ipspamlist</a> - ipspamlist - feed format: csv</li>
+<li><a href="https://raw.githubusercontent.com/stamparm/ipsum/master/levels/1.txt">IPsum (aggregation of all feeds) - level 1 - lot of false positives</a> - IPsum - feed format: freetext</li>
+<li><a href="https://raw.githubusercontent.com/stamparm/ipsum/master/levels/2.txt">IPsum (aggregation of all feeds) - level 2 - medium false positives</a> - IPsum - feed format: freetext</li>
+<li><a href="https://raw.githubusercontent.com/stamparm/ipsum/master/levels/3.txt">IPsum (aggregation of all feeds) - level 3 - low false positives</a> - IPsum - feed format: freetext</li>
+<li><a href="https://raw.githubusercontent.com/stamparm/ipsum/master/levels/4.txt">IPsum (aggregation of all feeds) - level 4 - very low false positives</a> - IPsum - feed format: freetext</li>
+<li><a href="https://raw.githubusercontent.com/stamparm/ipsum/master/levels/5.txt">IPsum (aggregation of all feeds) - level 5 - ultra false positives</a> - IPsum - feed format: freetext</li>
+<li><a href="https://raw.githubusercontent.com/stamparm/ipsum/master/levels/6.txt">IPsum (aggregation of all feeds) - level 6 - no false positives</a> - IPsum - feed format: freetext</li>
+<li><a href="https://raw.githubusercontent.com/stamparm/ipsum/master/levels/7.txt">IPsum (aggregation of all feeds) - level 7 - no false positives</a> - IPsum - feed format: freetext</li>
+<li><a href="https://raw.githubusercontent.com/stamparm/ipsum/master/levels/8.txt">IPsum (aggregation of all feeds) - level 8 - no false positives</a> - IPsum - feed format: freetext</li>
+<li><a href="https://jamesbrine.com.au/csv">James Brine Bruteforce IPs</a> - jamesbrine.com.au - feed format: csv</li>
+<li><a href="https://hole.cert.pl/domains/domains.txt">List of malicious domains in Poland</a> - CERT-PL - feed format: freetext</li>
+<li><a href="https://cti.bb.com.br:8443/hash-list.csv">List of malicious hashes</a> - Banco do Brasil S.A - feed format: csv</li>
+<li><a href="https://malshare.com/daily/malshare.current.all.txt">malshare.com - current all</a> - malshare.com - feed format: freetext</li>
+<li><a href="https://malsilo.gitlab.io/feeds/dumps/domain_list.txt">malsilo.domain</a> - MalSilo - feed format: csv</li>
+<li><a href="https://malsilo.gitlab.io/feeds/dumps/ip_list.txt">malsilo.ipv4</a> - MalSilo - feed format: csv</li>
+<li><a href="https://malsilo.gitlab.io/feeds/dumps/url_list.txt">malsilo.url</a> - MalSilo - feed format: csv</li>
+<li><a href="https://bazaar.abuse.ch/export/txt/md5/recent/">Malware Bazaar</a> - abuse.ch - feed format: csv</li>
+<li><a href="https://bazaar.abuse.ch/downloads/misp/">MalwareBazaar</a> - abuse.ch - feed format: misp</li>
+<li><a href="https://feeds.ecrimelabs.net/data/metasploit-cve">Metasploit exploits with CVE assigned</a> - eCrimeLabs - feed format: csv</li>
+<li><a href="https://mirai.security.gives/data/ip_list.txt">mirai.security.gives</a> - security.gives - feed format: freetext</li>
+<li><a href="https://raw.githubusercontent.com/openphish/public_feed/refs/heads/main/feed.txt">OpenPhish url list</a> - openphish.com - feed format: freetext</li>
+<li><a href="https://benkow.cc/export.php">Panels Tracker</a> - Benkow.cc - feed format: csv</li>
+<li><a href="https://phishstats.info/phish_score.csv">PhishScore</a> - PhishStats - feed format: csv</li>
+<li><a href="https://data.phishtank.com/data/online-valid.csv">Phishtank online valid phishing</a> - Phishtank - feed format: csv</li>
+<li><a href="https://home.nuug.no/~peter/pop3gropers.txt">pop3gropers</a> - home.nuug.no - feed format: csv</li>
+<li><a href="https://shreshtait.com/newly-registered-domains/nrd-1m">Shreshta: Newly Registered domain names (NRD) - 1 month (Community policy feed)</a> - shreshtait.com - feed format: freetext</li>
+<li><a href="https://shreshtait.com/newly-registered-domains/nrd-1w">Shreshta: Newly Registered domain names(NRD) - 1 week (Community policy feed)</a> - shreshtait.com - feed format: freetext</li>
+<li><a href="https://dataplane.org/sipinvitation.txt">sipinvitation</a> - dataplane.org - feed format: csv</li>
+<li><a href="https://dataplane.org/sipquery.txt">sipquery</a> - dataplane.org - feed format: csv</li>
+<li><a href="https://dataplane.org/sipregistration.txt">sipregistration</a> - dataplane.org - feed format: csv</li>
+<li><a href="https://dataplane.org/smtpdata.txt">SMTP data</a> - dataplane.org - feed format: csv</li>
+<li><a href="https://dataplane.org/smtpgreet.txt">SMTP greet</a> - dataplane.org - feed format: csv</li>
+<li><a href="https://feeds.honeynet.asia/bruteforce/latest-sshbruteforce-unique.csv">SSH Bruteforce IPs</a> - APNIC Community Honeynet Project - feed format: csv</li>
+<li><a href="https://dataplane.org/sshpwauth.txt">sshpwauth.txt</a> - dataplane.org - feed format: csv</li>
+<li><a href="https://feeds.honeynet.asia/bruteforce/latest-telnetbruteforce-unique.csv">Telnet Bruteforce IPs</a> - APNIC Community Honeynet Project - feed format: csv</li>
+<li><a href="https://dataplane.org/telnetlogin.txt">TELNET login</a> - dataplane.org - feed format: csv</li>
+<li><a href="https://www.botvrij.eu/data/feed-osint">The Botvrij.eu Data</a> - Botvrij.eu - feed format: misp</li>
+<li><a href="https://gitlab.com/ZeroDot1/CoinBlockerLists/raw/master/list_browser.txt?inline=false">This list contains all browser mining domains - A list to prevent browser mining only</a> - ZeroDot1 - CoinBlockerLists - feed format: freetext</li>
+<li><a href="https://gitlab.com/ZeroDot1/CoinBlockerLists/raw/master/list.txt?inline=false">This list contains all domains - A list for administrators to prevent mining in networks</a> - ZeroDot1 - CoinBlockerLists - feed format: freetext</li>
+<li><a href="https://gitlab.com/ZeroDot1/CoinBlockerLists/raw/master/list_optional.txt?inline=false">This list contains all optional domains - An additional list for administrators</a> - ZeroDot1 - CoinBlockerLists - feed format: freetext</li>
+<li><a href="https://threatfox.abuse.ch/export/csv/recent/">threatfox indicators of compromise</a> - abuse.ch - feed format: csv</li>
+<li><a href="https://threatfox.abuse.ch/downloads/misp/">Threatfox</a> - abuse.ch - feed format: misp</li>
+<li><a href="https://threatview.io/Downloads/MALICIOUS-BITCOIN_FEED.txt">Threatview.io - Bitcoin Address Intel</a> - threatview.io - feed format: freetext</li>
+<li><a href="https://threatview.io/Downloads/High-Confidence-CobaltStrike-C2%20-Feeds.txt">Threatview.io - C2 Hunt Feed</a> - threatview.io - feed format: csv</li>
+<li><a href="https://threatview.io/Downloads/DOMAIN-High-Confidence-Feed.txt">Threatview.io - Domain Blocklist</a> - threatview.io - feed format: freetext</li>
+<li><a href="https://threatview.io/Downloads/IP-High-Confidence-Feed.txt">Threatview.io - IP Blocklist</a> - threatview.io - feed format: freetext</li>
+<li><a href="https://threatview.io/Downloads/MD5-HASH-ALL.txt">Threatview.io - MD5 Hash Blocklist</a> - threatview.io - feed format: freetext</li>
+<li><a href="https://threatview.io/Downloads/Experimental-IOC-Tweets.txt">Threatview.io - OSINT Threat Feed</a> - threatview.io - feed format: freetext</li>
+<li><a href="https://threatview.io/Downloads/SHA-HASH-FEED.txt">Threatview.io - SHA File Hash Blocklist</a> - threatview.io - feed format: freetext</li>
+<li><a href="https://threatview.io/Downloads/URL-High-Confidence-Feed.txt">Threatview.io - URL Blocklist</a> - threatview.io - feed format: freetext</li>
+<li><a href="https://www.dan.me.uk/torlist/">Tor ALL nodes</a> - TOR Node List from dan.me.uk - careful, this feed applies a lock-out after each pull. This is shared with the &ldquo;Tor exit nodes&rdquo; feed. - feed format: csv</li>
+<li><a href="https://www.dan.me.uk/torlist/?exit">Tor exit nodes</a> - TOR Node List from dan.me.uk - careful, this feed applies a lock-out after each pull. This is shared with the &ldquo;Tor ALL nodes&rdquo; feed. - feed format: csv</li>
+<li><a href="https://feeds.honeynet.asia/url/latest-url-unique.csv">URL Seen in honeypots</a> - APNIC Community Honeynet Project - feed format: freetext</li>
+<li><a href="https://urlhaus.abuse.ch/downloads/csv_recent/">URLHaus Malware URLs</a> - abuse.ch - feed format: csv</li>
+<li><a href="https://urlhaus.abuse.ch/downloads/misp/">URLhaus</a> - abuse.ch - feed format: misp</li>
+<li><a href="https://dataplane.org/vncrfb.txt">VNC RFB</a> - dataplane.org - feed format: csv</li>
+<li><a href="http://vxvault.net/URL_List.php">VXvault - URL List</a> - VXvault - feed format: freetext</li>
+</ul>
+<p>To enable a feed for caching, you just need to check the enabled field to benefit automatically of the feeds in your local MISP instance. To allow other users of your MISP instance to benefit from this functionality, simply check the &ldquo;lookup visible&rdquo; checkbox.</p>
+<h2 id="feed-overlap-analysis-matrix">Feed overlap analysis matrix</h2>
+<img src="/img/blog/feed-overlap-analys-matrix.png"
+            
+            
+            alt="feed overlap analysis matrix"/>
+<h2 id="how-to-have-my-feed-published-in-the-default-misp-osint-feed">How to have my feed published in the default MISP OSINT feed</h2>
+<ul>
+<li>Fork the <a href="https://github.com/MISP/MISP">MISP project</a> on GitHub.</li>
+<li>Update the <a href="https://github.com/MISP/MISP/blob/2.4/app/files/feed-metadata/defaults.json">default MISP feed</a> to add your feed(s).</li>
+<li>Make a pull-request with the updated JSON file.</li>
+</ul>
+
+                        </div>
+
+                    </div>
+                    
+
+                    
+
+                    
+
+                    <div class="col-md-3">
+
+                        
+
+                        
+
+<div class="panel panel-default sidebar-menu">
+
+    <div class="panel-heading">
+      <h3 class="panel-title">Search</h3>
+    </div>
+
+    <div class="panel-body">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" role="search">
+            <div class="input-group">
+                <input type="search" name="q" class="form-control" placeholder="Search">
+                <input type="hidden" name="sitesearch" value="https://www.misp-project.org/">
+                <span class="input-group-btn">
+                    <button type="submit" class="btn btn-template-main"><i class="fas fa-search"></i></button>
+                </span>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="panel sidebar-menu">
+
+    <div class="panel-heading">
+        <h3 class="panel-title">Tags</h3>
+    </div>
+
+    <div class="panel-body">
+        <ul class="tag-cloud">
+            
+            
+            <li >
+                <a href="/tags/alerts"><i class="fas fa-tags"></i> alerts</a>
+            </li>
+            
+            <li >
+                <a href="/tags/analyst-notes"><i class="fas fa-tags"></i> analyst notes</a>
+            </li>
+            
+            <li >
+                <a href="/tags/analyst-opinions"><i class="fas fa-tags"></i> analyst opinions</a>
+            </li>
+            
+            <li >
+                <a href="/tags/automation"><i class="fas fa-tags"></i> automation</a>
+            </li>
+            
+            <li >
+                <a href="/tags/azure"><i class="fas fa-tags"></i> azure</a>
+            </li>
+            
+            <li >
+                <a href="/tags/bloom-filter"><i class="fas fa-tags"></i> bloom filter</a>
+            </li>
+            
+            <li >
+                <a href="/tags/bot"><i class="fas fa-tags"></i> bot</a>
+            </li>
+            
+            <li >
+                <a href="/tags/cacti"><i class="fas fa-tags"></i> cacti</a>
+            </li>
+            
+            <li >
+                <a href="/tags/case-management"><i class="fas fa-tags"></i> case management</a>
+            </li>
+            
+            <li >
+                <a href="/tags/cluster"><i class="fas fa-tags"></i> cluster</a>
+            </li>
+            
+            <li >
+                <a href="/tags/cognitive-security"><i class="fas fa-tags"></i> cognitive security</a>
+            </li>
+            
+            <li >
+                <a href="/tags/collecting"><i class="fas fa-tags"></i> collecting</a>
+            </li>
+            
+            <li >
+                <a href="/tags/crawling"><i class="fas fa-tags"></i> crawling</a>
+            </li>
+            
+            <li >
+                <a href="/tags/curation"><i class="fas fa-tags"></i> curation</a>
+            </li>
+            
+            <li >
+                <a href="/tags/disinformation"><i class="fas fa-tags"></i> disinformation</a>
+            </li>
+            
+            <li >
+                <a href="/tags/docker"><i class="fas fa-tags"></i> docker</a>
+            </li>
+            
+            <li >
+                <a href="/tags/edr"><i class="fas fa-tags"></i> edr</a>
+            </li>
+            
+            <li >
+                <a href="/tags/elastic"><i class="fas fa-tags"></i> elastic</a>
+            </li>
+            
+            <li >
+                <a href="/tags/elasticsearch"><i class="fas fa-tags"></i> elasticsearch</a>
+            </li>
+            
+            <li >
+                <a href="/tags/filebeat"><i class="fas fa-tags"></i> filebeat</a>
+            </li>
+            
+            <li >
+                <a href="/tags/flowintel"><i class="fas fa-tags"></i> flowintel</a>
+            </li>
+            
+            <li >
+                <a href="/tags/galaxy"><i class="fas fa-tags"></i> galaxy</a>
+            </li>
+            
+            <li >
+                <a href="/tags/harfanglab"><i class="fas fa-tags"></i> harfanglab</a>
+            </li>
+            
+            <li >
+                <a href="/tags/honeypot"><i class="fas fa-tags"></i> honeypot</a>
+            </li>
+            
+            <li >
+                <a href="/tags/import-script"><i class="fas fa-tags"></i> import script</a>
+            </li>
+            
+            <li >
+                <a href="/tags/information-operations"><i class="fas fa-tags"></i> information operations</a>
+            </li>
+            
+            <li >
+                <a href="/tags/information-sharing"><i class="fas fa-tags"></i> information sharing</a>
+            </li>
+            
+            <li >
+                <a href="/tags/integration"><i class="fas fa-tags"></i> integration</a>
+            </li>
+            
+            <li >
+                <a href="/tags/ioc"><i class="fas fa-tags"></i> ioc</a>
+            </li>
+            
+            <li >
+                <a href="/tags/jupyter"><i class="fas fa-tags"></i> jupyter</a>
+            </li>
+            
+            <li >
+                <a href="/tags/kunai"><i class="fas fa-tags"></i> kunai</a>
+            </li>
+            
+            <li >
+                <a href="/tags/maltego"><i class="fas fa-tags"></i> maltego</a>
+            </li>
+            
+            <li >
+                <a href="/tags/mastodon"><i class="fas fa-tags"></i> mastodon</a>
+            </li>
+            
+            <li >
+                <a href="/tags/microsoft"><i class="fas fa-tags"></i> microsoft</a>
+            </li>
+            
+            <li >
+                <a href="/tags/misp"><i class="fas fa-tags"></i> misp</a>
+            </li>
+            
+            <li >
+                <a href="/tags/misp-standard"><i class="fas fa-tags"></i> misp standard</a>
+            </li>
+            
+            <li >
+                <a href="/tags/misp-modules"><i class="fas fa-tags"></i> misp-modules</a>
+            </li>
+            
+            <li >
+                <a href="/tags/misp42"><i class="fas fa-tags"></i> misp42</a>
+            </li>
+            
+            <li >
+                <a href="/tags/modules"><i class="fas fa-tags"></i> modules</a>
+            </li>
+            
+            <li >
+                <a href="/tags/monitoring"><i class="fas fa-tags"></i> monitoring</a>
+            </li>
+            
+            <li >
+                <a href="/tags/notebooks"><i class="fas fa-tags"></i> notebooks</a>
+            </li>
+            
+            <li >
+                <a href="/tags/object"><i class="fas fa-tags"></i> object</a>
+            </li>
+            
+            <li >
+                <a href="/tags/objects"><i class="fas fa-tags"></i> objects</a>
+            </li>
+            
+            <li >
+                <a href="/tags/opennms"><i class="fas fa-tags"></i> opennms</a>
+            </li>
+            
+            <li >
+                <a href="/tags/playbooks"><i class="fas fa-tags"></i> playbooks</a>
+            </li>
+            
+            <li >
+                <a href="/tags/poppy"><i class="fas fa-tags"></i> poppy</a>
+            </li>
+            
+            <li >
+                <a href="/tags/procedure"><i class="fas fa-tags"></i> procedure</a>
+            </li>
+            
+            <li >
+                <a href="/tags/release"><i class="fas fa-tags"></i> release</a>
+            </li>
+            
+            <li >
+                <a href="/tags/reporting"><i class="fas fa-tags"></i> reporting</a>
+            </li>
+            
+            <li >
+                <a href="/tags/retrosearch"><i class="fas fa-tags"></i> retrosearch</a>
+            </li>
+            
+            <li >
+                <a href="/tags/scraping"><i class="fas fa-tags"></i> scraping</a>
+            </li>
+            
+            <li >
+                <a href="/tags/sentinel"><i class="fas fa-tags"></i> sentinel</a>
+            </li>
+            
+            <li >
+                <a href="/tags/sharing"><i class="fas fa-tags"></i> sharing</a>
+            </li>
+            
+            <li >
+                <a href="/tags/sigint"><i class="fas fa-tags"></i> sigint</a>
+            </li>
+            
+            <li >
+                <a href="/tags/sigmf"><i class="fas fa-tags"></i> sigmf</a>
+            </li>
+            
+            <li >
+                <a href="/tags/signal-intelligence"><i class="fas fa-tags"></i> signal intelligence</a>
+            </li>
+            
+            <li >
+                <a href="/tags/splunk"><i class="fas fa-tags"></i> splunk</a>
+            </li>
+            
+            <li >
+                <a href="/tags/statistics"><i class="fas fa-tags"></i> statistics</a>
+            </li>
+            
+            <li >
+                <a href="/tags/stix"><i class="fas fa-tags"></i> stix</a>
+            </li>
+            
+            <li >
+                <a href="/tags/threat-intelligence"><i class="fas fa-tags"></i> threat intelligence</a>
+            </li>
+            
+            <li >
+                <a href="/tags/twitter"><i class="fas fa-tags"></i> twitter</a>
+            </li>
+            
+            <li >
+                <a href="/tags/yeti"><i class="fas fa-tags"></i> yeti</a>
+            </li>
+            
+        </ul>
+    </div>
+
+</div>
+
+
+
+
+
+
+                        
+
+                    </div>
+                    
+
+                    
+
+                </div>
+                
+
+            </div>
+            
+        </div>
+        
+
+        <footer id="footer">
+    <div class="container">
+
+        
+        <div class="col-md-4 col-sm-6">
+            <h4>About us</h4>
+
+            <a href="/who/">About us</a><br/><a href="https://www.misp-standard.org/"><img class="img-responsive" src="/img/misp-standard-dark.png"></a><br/><a href="/thanks"><img class="img-responsive" src="/img/eu_funded_en.jpg"/></a>
+
+            <hr class="hidden-md hidden-lg hidden-sm">
+
+        </div>
+        
+        
+
+        <div class="col-md-4 col-sm-6">
+
+            
+            <h4>Recent posts</h4>
+
+            <div class="blog-entries">
+                
+                <div class="item same-height-row clearfix">
+                    <div class="image same-height-always">
+                        <a href="https://www.misp-project.org/2025/10/06/wazuh-integration.html/">
+                          
+                            <img src="/img/blog/wazuh-logo.png" class="img-responsive" alt="Wazuh and MISP integration">
+                          
+                        </a>
+                    </div>
+                    <div class="name same-height-always">
+                        <h5><a href="https://www.misp-project.org/2025/10/06/wazuh-integration.html/">Wazuh and MISP integration</a></h5>
+                    </div>
+                </div>
+                
+                <div class="item same-height-row clearfix">
+                    <div class="image same-height-always">
+                        <a href="https://www.misp-project.org/2025/10/02/misp.2.5.22.released.html/">
+                          
+                            <img src="/img/blog/graph-cn.png" class="img-responsive" alt="MISP 2.5.22 released with improvements and bugs fixes">
+                          
+                        </a>
+                    </div>
+                    <div class="name same-height-always">
+                        <h5><a href="https://www.misp-project.org/2025/10/02/misp.2.5.22.released.html/">MISP 2.5.22 released with improvements and bugs fixes</a></h5>
+                    </div>
+                </div>
+                
+                <div class="item same-height-row clearfix">
+                    <div class="image same-height-always">
+                        <a href="https://www.misp-project.org/2025/09/19/misp-synchronisation.html/">
+                          
+                            <img src="/img/blog/synchronisation/sync.png" class="img-responsive" alt="MISP Synchronisation - Test and Validation Project">
+                          
+                        </a>
+                    </div>
+                    <div class="name same-height-always">
+                        <h5><a href="https://www.misp-project.org/2025/09/19/misp-synchronisation.html/">MISP Synchronisation - Test and Validation Project</a></h5>
+                    </div>
+                </div>
+                
+            </div>
+
+            <hr class="hidden-md hidden-lg">
+            
+
+        </div>
+        
+
+        
+        <div class="col-md-4 col-sm-6">
+
+          <h4>Contact</h4>
+
+                  
+
+            <a href="/support" class="btn btn-small btn-template-main">Go to contact page</a>
+
+            <hr class="hidden-md hidden-lg hidden-sm">
+
+        </div>
+        
+        
+
+    </div>
+    
+</footer>
+
+
+
+
+
+
+
+<div id="copyright">
+    <div class="container">
+        <div class="col-md-12">
+            
+            <p class="pull-left">© MISP project. Software released under <a href="/license/">approved open source licenses</a> and content of this website released as CC BY-SA 3.0.</p>
+            
+            <p class="pull-right">
+              Template by <a href="https://bootstrapious.com/p/universal-business-e-commerce-template">Bootstrapious</a>.
+              
+
+              Ported to Hugo by <a href="https://github.com/devcows/hugo-universal-theme">DevCows</a>.
+            </p>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+    </div>
+    
+
+    
+<script src="//code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/waypoints/4.0.1/jquery.waypoints.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/Counter-Up/1.0/jquery.counterup.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery-parallax/1.1.3/jquery-parallax.js"></script>
+
+
+<script src="/js/front.js"></script>
+
+
+<script src="/js/owl.carousel.min.js"></script>
+
+
+
+  </body>
+</html>
