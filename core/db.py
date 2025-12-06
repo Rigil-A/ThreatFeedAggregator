@@ -16,11 +16,30 @@ def create_table():
             last_seen TEXT NOT NULL
         )
     """)
+    # Tạo index để tối ưu truy vấn SELECT/UPDATE theo (ioc_value, ioc_type)
+    c.execute("CREATE INDEX IF NOT EXISTS idx_indicators_value_type ON indicators(ioc_value, ioc_type)")
     conn.commit()
     conn.close()
 
-def add_ioc(ioc_value, ioc_type, source):
-    conn = sqlite3.connect(DB_PATH)
+def add_ioc(ioc_value, ioc_type, source, conn=None):
+    """
+    Thêm hoặc cập nhật một IOC vào database.
+    
+    Args:
+        ioc_value: Giá trị IOC
+        ioc_type: Loại IOC
+        source: Nguồn IOC
+        conn: Connection SQLite tùy chọn. Nếu None, sẽ tự tạo và đóng connection.
+              Nếu được cung cấp, sẽ không commit và không đóng connection (để batch commit).
+    
+    Returns:
+        True nếu thành công
+    """
+    should_close = False
+    if conn is None:
+        conn = sqlite3.connect(DB_PATH)
+        should_close = True
+    
     c = conn.cursor()
     now = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
     
@@ -38,8 +57,113 @@ def add_ioc(ioc_value, ioc_type, source):
             VALUES (?, ?, ?, ?, ?)
         """, (ioc_value, ioc_type, source, now, now))
     
-    conn.commit()
-    conn.close()
+    if should_close:
+        conn.commit()
+        conn.close()
+    
+    return True
+
+def add_iocs_batch(iocs_list):
+    """
+    Ghi nhiều IOC vào DB cùng lúc (batch insert/update) để tối ưu hiệu năng.
+    Nhận vào list các dict có keys: ioc_value, ioc_type, source.
+    Trả về số lượng IOC đã được ghi thành công.
+    """
+    if not iocs_list:
+        return 0
+    
+    conn = sqlite3.connect(DB_PATH)
+    # Tối ưu cho batch insert
+    c = conn.cursor()
+    try:
+        c.execute("PRAGMA journal_mode=WAL;")
+        c.execute("PRAGMA synchronous=NORMAL;")
+        c.execute("PRAGMA cache_size=-64000;")  # 64MB cache
+    except Exception:
+        pass
+    
+    now = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+    written = 0
+    
+    try:
+        # Lấy tất cả IOC cần kiểm tra trong một query duy nhất
+        # Tạo dict để map (ioc_value, ioc_type) -> id nếu tồn tại
+        existing_map = {}
+        unique_keys = set()
+        for ioc in iocs_list:
+            ioc_value = ioc.get("ioc_value")
+            ioc_type = ioc.get("ioc_type")
+            if ioc_value and ioc_type:
+                key = (ioc_value, ioc_type)
+                unique_keys.add(key)
+                existing_map[key] = None
+        
+        # Batch SELECT để kiểm tra IOC đã tồn tại chưa
+        # SQLite không hỗ trợ tuple comparison, dùng OR với nhiều điều kiện
+        # Tuy nhiên, SQLite có giới hạn expression tree depth = 1000, nên phải chia nhỏ batch
+        # Chia thành các chunk nhỏ hơn để tránh lỗi "Expression tree is too large"
+        if unique_keys:
+            # Chia unique_keys thành các chunk nhỏ (500 items mỗi chunk để an toàn)
+            chunk_size = 500
+            unique_keys_list = list(unique_keys)
+            
+            for i in range(0, len(unique_keys_list), chunk_size):
+                chunk = unique_keys_list[i:i + chunk_size]
+                conditions = []
+                values = []
+                for key in chunk:
+                    conditions.append("(ioc_value = ? AND ioc_type = ?)")
+                    values.extend(key)
+                
+                query = "SELECT id, ioc_value, ioc_type FROM indicators WHERE " + " OR ".join(conditions)
+                c.execute(query, values)
+                for row in c.fetchall():
+                    existing_map[(row[1], row[2])] = row[0]
+        
+        # Phân loại IOC thành insert và update
+        to_insert = []
+        to_update = []
+        
+        for ioc in iocs_list:
+            ioc_value = ioc.get("ioc_value")
+            ioc_type = ioc.get("ioc_type")
+            source = ioc.get("source")
+            
+            if not ioc_value or not ioc_type or not source:
+                continue
+            
+            key = (ioc_value, ioc_type)
+            existing_id = existing_map.get(key)
+            
+            if existing_id:
+                to_update.append((now, existing_id))
+            else:
+                to_insert.append((ioc_value, ioc_type, source, now, now))
+        
+        # Batch UPDATE
+        if to_update:
+            c.executemany(
+                "UPDATE indicators SET last_seen = ? WHERE id = ?",
+                to_update
+            )
+            written += len(to_update)
+        
+        # Batch INSERT
+        if to_insert:
+            c.executemany(
+                "INSERT INTO indicators (ioc_value, ioc_type, source, first_seen, last_seen) VALUES (?, ?, ?, ?, ?)",
+                to_insert
+            )
+            written += len(to_insert)
+        
+        conn.commit()
+    except Exception as e:
+        conn.rollback()
+        raise e
+    finally:
+        conn.close()
+    
+    return written
 
 def filter_iocs(
     ioc_value=None,
