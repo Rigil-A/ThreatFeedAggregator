@@ -1,6 +1,6 @@
 from core.aggregator import ThreatFeedAggregator
 from core.queue import File_queue
-from core.db import create_table, add_iocs_batch, DB_PATH
+from core.db import create_tables, add_iocs_batch, insert_fetch_history, update_fetch_history, DB_PATH
 from core.checkpoint import CheckpointManager
 from utils.logger_util import get_logger
 import sys
@@ -66,10 +66,12 @@ class ThreatIntelPipeline:
         except Exception:
             pass
 
-    def _enqueue_iocs(self):
+    def _enqueue_iocs(self, fetch_id: int):
         """
         Chạy qua tất cả feed đã enable, lấy IOC đã normalize
         và push từng item vào hàng đợi.
+        Args:
+            fetch_id: id của fetch_history được tạo trước khi fetch
         Trả về:
             - total_iocs: tổng số IOC đã push vào queue
             - collected_iocs: list IOC object (để cho main dùng nếu cần)
@@ -78,7 +80,7 @@ class ThreatIntelPipeline:
         collected_iocs = []
 
         self.logger.info(
-            "Enqueue IOCs from %d feeds...", len(self.aggregator.feeds)
+            "Enqueue IOCs from %d feeds... (fetch_id=%d)", len(self.aggregator.feeds), fetch_id
         )
         for feed in self.aggregator.feeds:
             if not getattr(feed, "enabled", False):
@@ -93,6 +95,7 @@ class ThreatIntelPipeline:
                     "ioc_value": getattr(ioc, "value", None),
                     "ioc_type": getattr(ioc, "ioc_type", None),
                     "source": getattr(ioc, "source", None) or getattr(feed, "provider", None),
+                    "fetch_id": fetch_id,  # Lưu fetch_id vào queue
                 }
 
                 # Bỏ qua IOC thiếu thông tin quan trọng
@@ -106,12 +109,13 @@ class ThreatIntelPipeline:
         self.logger.info("Enqueued %d IOCs into queue.", total_iocs)
         return total_iocs, collected_iocs
 
-    def _drain_queue_to_db(self, total_expected: int = None, resume: bool = False) -> int:
+    def _drain_queue_to_db(self, fetch_id: int, total_expected: int = None, resume: bool = False) -> int:
         """
         Đọc lần lượt từng item trong queue và ghi vào DB.
         Trả về tổng số IOC đã ghi vào DB.
         
         Args:
+            fetch_id: id của fetch_history được tạo trước khi fetch
             total_expected: Tổng số IOC dự kiến trong queue
             resume: Nếu True, sẽ load checkpoint và tiếp tục từ điểm đã dừng
         """
@@ -141,7 +145,7 @@ class ThreatIntelPipeline:
             except Exception:
                 total = 0
 
-        self.logger.info("Start draining queue to database... total_queue_items=%d", total)
+        self.logger.info("Start draining queue to database... total_queue_items=%d, fetch_id=%d", total, fetch_id)
 
         # Tối ưu: sử dụng batch pop để giảm số lần đọc/ghi file queue
         pop_batch_size = 5000  # Pop 5000 items mỗi lần từ queue
@@ -184,7 +188,9 @@ class ThreatIntelPipeline:
                 for i in range(0, len(valid_items), db_batch_size):
                     batch = valid_items[i:i + db_batch_size]
                     try:
-                        written_in_batch = add_iocs_batch(batch)
+                        # Lấy fetch_id từ item đầu tiên (tất cả item đều có fetch_id giống nhau)
+                        batch_fetch_id = batch[0].get("fetch_id", fetch_id) if batch else fetch_id
+                        written_in_batch = add_iocs_batch(batch, batch_fetch_id)
                         total_written += written_in_batch
                     except Exception as e:
                         total_errors += len(batch)
@@ -248,6 +254,15 @@ class ThreatIntelPipeline:
         if total_errors > 0:
             self.logger.warning("Encountered %d errors while writing to database", total_errors)
         
+        # Cập nhật fetch_history với thống kê cuối cùng
+        self.logger.info("Updating fetch_history (fetch_id=%d) with final statistics", fetch_id)
+        update_fetch_history(
+            fetch_id,
+            total_src=1,  # Số nguồn feed
+            total_ioc=total_written + total_errors,  # Tổng số IOC đã xử lý
+            new_ioc=total_written  # Số IOC mới được thêm vào
+        )
+        
         self.logger.info("Written %d IOCs to database (errors: %d).", total_written, total_errors)
         return total_written
 
@@ -255,6 +270,7 @@ class ThreatIntelPipeline:
         """
         - Kiểm tra queue đã tồn tại chưa, nếu có thì hỏi người dùng có muốn tiếp tục không.
         - Tạo bảng DB nếu chưa tồn tại.
+        - Tạo fetch_history record vào đầu tiên.
         - Fetch + normalize IOCs từ tất cả feed và đưa vào queue (nếu chưa có).
         - Đẩy toàn bộ queue vào DB.
         Trả về tuple: (số_feed, tổng_ioc_enqueue, tổng_ioc_ghi_db, list_ioc_object)
@@ -270,10 +286,20 @@ class ThreatIntelPipeline:
                 os.makedirs(db_dir, exist_ok=True)
                 self.logger.info("Created database directory: %s", db_dir)
             
-            # Đảm bảo DB đã sẵn sàng
+            # Đảm bảo DB đã sẵn sàn
             self.logger.info("Initializing database...")
-            create_table()
+            create_tables()
             self.logger.info("Database initialized successfully.")
+            
+            # Tạo fetch history record VÀO ĐẦU TIÊN - trước khi fetch
+            # Điều này đảm bảo tất cả IOC được fetch sẽ được ghi với cùng 1 fetch_id
+            self.logger.info("Creating fetch history record...")
+            fetch_id = insert_fetch_history(
+                total_src=0,  # Sẽ cập nhật sau
+                total_ioc=0,  # Sẽ cập nhật sau
+                new_ioc=0     # Sẽ cập nhật sau
+            )
+            self.logger.info("Created fetch history with fetch_id=%d", fetch_id)
 
             # Kiểm tra queue đã tồn tại và có dữ liệu chưa
             queue_exists = self.queue.has_data()
@@ -325,7 +351,7 @@ class ThreatIntelPipeline:
                             self.checkpoint.clear()
                             self.logger.info("Queue and checkpoint cleared. Starting fresh.")
                             print("[INFO] Queue and checkpoint cleared. Starting fresh.")
-                            total_enqueued, collected_iocs = self._enqueue_iocs()
+                            total_enqueued, collected_iocs = self._enqueue_iocs(fetch_id)
                             enqueued_now = True
                         elif response == '2':
                             self.logger.info("User chose to skip. Exiting.")
@@ -338,11 +364,11 @@ class ThreatIntelPipeline:
                             collected_iocs = []  # Không có collected_iocs khi resume
                 else:
                     # Vẫn enqueue nhưng sẽ append vào queue hiện có
-                    total_enqueued, collected_iocs = self._enqueue_iocs()
+                    total_enqueued, collected_iocs = self._enqueue_iocs(fetch_id)
                     enqueued_now = True
             else:
                 # Queue chưa tồn tại hoặc rỗng, tiến hành enqueue bình thường
-                total_enqueued, collected_iocs = self._enqueue_iocs()
+                total_enqueued, collected_iocs = self._enqueue_iocs(fetch_id)
                 enqueued_now = True
             
             # Drain queue và ghi vào DB. Nếu biết tổng (total_enqueued), truyền vào để tránh đọc lại file queue lớn.
@@ -360,7 +386,7 @@ class ThreatIntelPipeline:
                 except Exception as e:
                     self.logger.warning("Could not import/run analyze_queue: %s", e)
 
-            total_written = self._drain_queue_to_db(total_expected=total_enqueued, resume=resume)
+            total_written = self._drain_queue_to_db(fetch_id, total_expected=total_enqueued, resume=resume)
             
             feed_count = len(self.aggregator.feeds)
             
