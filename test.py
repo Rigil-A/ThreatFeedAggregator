@@ -1,5 +1,6 @@
-from core.db import create_table, add_ioc, filter_iocs, delete_iocs
+from core.exporter import IOCExporter
 
-data = filter_iocs(first_from="2025-10-07 14:41:03", first_to="2025-10-07 14:41:03", last_to="2025-10-07 14:43:05")
-for row in data:
-    print(row)
+if __name__ == '__main__':
+    exporter = IOCExporter()  # tạo instance
+    IoCs = exporter.export_from_db(fmt='json', db_path="data/database/ioc_database.db")
+    print(IoCs)
