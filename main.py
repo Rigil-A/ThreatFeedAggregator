@@ -1,4 +1,6 @@
 from core.aggregator import ThreatFeedAggregator
+import datetime
+import csv
 
 if __name__ == "__main__":
     aggregator = ThreatFeedAggregator()
@@ -11,7 +13,7 @@ if __name__ == "__main__":
     print(f"[✓] Total IOCs: {len(all_iocs)}")
     
     
-    timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+    timestamp = datetime.datetime.now().strftime("%Y%m%d_%H%M%S")
     csv_file = f"output/iocs_{timestamp}.csv"
     
     with open(csv_file, "w", newline="", encoding="utf-8") as f:
