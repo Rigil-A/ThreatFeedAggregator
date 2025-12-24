@@ -1,6 +1,23 @@
 # ThreatFeed Aggregator
 
-Hệ thống thu thập và tổng hợp các Indicators of Compromise (IoC) từ nhiều nguồn threat intelligence khác nhau.
+**ThreatFeedAggregator** là một công cụ mạnh mẽ được thiết kế để thu thập, tổng hợp, chuẩn hóa và loại bỏ trùng lặp các nguồn Threat Intelligence từ nhiều feed công khai khác nhau. Trên Internet có rất nhiều dữ liệu về các mối đe dọa, bao gồm danh sách IP độc hại, domain C&C, malware hash, và các nguồn feed JSON/TXT từ các tổ chức bảo mật. ThreatFeedAggregator giúp bạn tự động hóa quá trình này, đưa tất cả dữ liệu về một định dạng chung, dễ sử dụng và dễ phân tích.
+
+### Tính năng chính
+
+Công cụ hỗ trợ:
+
+- **Thu thập đa nguồn**: Dữ liệu từ ít nhất 5 nguồn Threat Intelligence công khai, có thể mở rộng thêm các nguồn mới bằng cách cấu hình trong file YAML.
+- **Loại trùng & toàn vẹn**: Tổng hợp và loại bỏ các IoC trùng lặp trước khi lưu vào cơ sở dữ liệu SQLite, đảm bảo dữ liệu sạch và duy nhất.
+- **Chuẩn hóa**: Chuẩn hóa các IoC về định dạng chung, bao gồm IP, domain, URL, hash, giúp việc phân tích và chia sẻ trở nên thuận tiện.
+- **Xuất linh hoạt**: Xuất dữ liệu ra các định dạng phổ biến như file text (mỗi dòng một IoC) hoặc JSON, sẵn sàng sử dụng cho các hệ thống bảo mật khác.
+- **Chạy tự động**: Hỗ trợ chạy theo lịch trình định kỳ với scheduler, kết hợp checkpoint và resume để đảm bảo pipeline không bị gián đoạn.
+- **Logging & Debug**: Logging chi tiết, giúp theo dõi trạng thái thu thập và debug dễ dàng.
+
+### Công nghệ sử dụng
+
+ThreatFeedAggregator được phát triển bằng **Python**, sử dụng thư viện `requests` để tải dữ liệu và `sqlite3` để lưu trữ tạm thời. Thiết kế cũng hỗ trợ mở rộng cho các ngôn ngữ khác như Go để xử lý các tác vụ liên quan đến mạng và concurrency.
+
+Sản phẩm đi kèm bao gồm: mã nguồn công cụ, file cấu hình mẫu để thêm các nguồn feed, và hướng dẫn sử dụng đầy đủ.
 
 ## Cấu trúc dự án
 
@@ -86,12 +103,12 @@ python main.py
 ```
 
 ## Tính năng chính
-
-- Thu thập IoC từ nhiều nguồn threat intelligence
-- Chuẩn hóa dữ liệu về định dạng chung
-- Loại bỏ các IoC trùng lặp
-- Xuất dữ liệu ra nhiều định dạng (JSON, CSV)
-- Hệ thống logging chi tiết
-
-- Chạy tự động theo lịch trình
+```
+- Thu thập IoC từ nhiều nguồn threat intelligence với khả năng tự động phát hiện feeds.  
+- Chuẩn hóa dữ liệu IoC về định dạng chung, đảm bảo tính đồng nhất.  
+- Loại bỏ các IoC trùng lặp trước khi lưu vào cơ sở dữ liệu.  
+- Lưu trữ và xuất dữ liệu ra nhiều định dạng: JSON, CSV.  
+- Hệ thống logging chi tiết, theo dõi pipeline và hỗ trợ debug.  
+- Hỗ trợ chạy tự động theo lịch trình với scheduler, bao gồm checkpoint và resume khi pipeline bị gián đoạn.
+```
 
