@@ -1,94 +1,93 @@
 # ThreatFeed Aggregator
 
-Hệ thống thu thập và tổng hợp các Indicators of Compromise (IoC) từ nhiều nguồn threat intelligence khác nhau.
+**ThreatFeedAggregator** là một công cụ mạnh mẽ được thiết kế để thu thập, tổng hợp, chuẩn hóa và loại bỏ trùng lặp các nguồn Threat Intelligence từ nhiều feed công khai khác nhau. Trên Internet có rất nhiều dữ liệu về các mối đe dọa, bao gồm danh sách IP độc hại, domain C&C, malware hash, và các nguồn feed JSON/TXT từ các tổ chức bảo mật. ThreatFeedAggregator giúp bạn tự động hóa quá trình này, đưa tất cả dữ liệu về một định dạng chung, dễ sử dụng và dễ phân tích.
+
+### Tính năng chính
+Công cụ hỗ trợ:
+
+- **Thu thập đa nguồn**: Dữ liệu từ ít nhất 5 nguồn Threat Intelligence công khai, có thể mở rộng thêm các nguồn mới bằng cách cấu hình trong file YAML.
+- **Loại trùng & toàn vẹn**: Tổng hợp và loại bỏ các IoC trùng lặp trước khi lưu vào cơ sở dữ liệu SQLite, đảm bảo dữ liệu sạch và duy nhất.
+- **Chuẩn hóa**: Chuẩn hóa các IoC về định dạng chung, bao gồm IP, domain, URL, hash, giúp việc phân tích và chia sẻ trở nên thuận tiện.
+- **Xuất linh hoạt**: Xuất dữ liệu ra các định dạng phổ biến như file text (mỗi dòng một IoC) hoặc JSON, sẵn sàng sử dụng cho các hệ thống bảo mật khác.
+- **Chạy tự động**: Hỗ trợ chạy theo lịch trình định kỳ với scheduler, kết hợp checkpoint và resume để đảm bảo pipeline không bị gián đoạn.
+- **Logging & Debug**: Logging chi tiết, giúp theo dõi trạng thái thu thập và debug dễ dàng.
+
+### Công nghệ sử dụng
+
+ThreatFeedAggregator được phát triển bằng **Python**, sử dụng thư viện `requests` để tải dữ liệu và `sqlite3` để lưu trữ tạm thời. Thiết kế cũng hỗ trợ mở rộng cho các ngôn ngữ khác như Go để xử lý các tác vụ liên quan đến mạng và concurrency.
+
+Sản phẩm đi kèm bao gồm: mã nguồn công cụ, file cấu hình mẫu để thêm các nguồn feed, và hướng dẫn sử dụng đầy đủ.
 
 ## Cấu trúc dự án
 
 ```
-ThreatFeed-Aggregator/
-│
-├── feeds/                      # Các module fetch dữ liệu từ nguồn (parsers)
-│   ├── abusech_feed.py
-│   ├── alienvault_feed.py
-│   └── ...
-│
-├── core/                      # Thành phần xử lý lõi
-│   ├── aggregator.py          # Hàm chính thu thập từ nhiều nguồn, loại trùng
-│   ├── normalizer.py          # Chuẩn hóa IoC về định dạng chung
-│   ├── db.py                  # Các hàm thao tác với database
-│   ├── queue.py               # Tổ chức hàng đợi xử lý
-│   └── exporter.py            # Xuất dữ liệu ra JSON/CSV
-│
-├── utils/                     # Tiện ích chung
-│   ├── logger_util.py         # Cấu hình ghi log
-│   ├── config_loader.py       # Đọc file config.yaml
-│   └── scheduler.py           # Chạy định kỳ (cron/schedule library) (luôn mở terminal)
-│
-├── config/                    # File cấu hình
-│   ├── feeds.yaml             # Danh sách nguồn feed, URL, tham số API
-│   └── settings.yaml          # Cấu hình chung: log path, output format, TTL,...
-│
-├── data/                      # Dữ liệu IoC đã thu thập
-│   ├── raw/                   # Dữ liệu thô từ từng feed
-│   └── processed/             # Dữ liệu đã chuẩn hóa + loại trùng
-│
-├── logs/                      # File log
-│   └── aggregator.log
-│
-├── output/                    # Dữ liệu xuất từ exporter
-│   ├── ioc-latest.json
-│   ├── ioc-latest.csv
-│   └── summary.txt
-│
-├── models/                    # Mappings hoặc model artifacts
-├── ttp_mapping/               # (optional) ttp id -> name mappings
-├── scripts/                   # helper scripts (e.g. validate_environment.ps1)
-│
-├── analyze.py                 # Phân tích queue + biểu đồ
-├── extract_ioc_from_pdf.py    # Trích IOC từ PDF và in ra console
-├── extract_ioc_to_json.py     # Trích IOC từ PDF và lưu JSON
-├── extract_ttp.py             # TTP extraction helper (yêu cầu ML deps)
-├── setup_scheduler.ps1        # PowerShell helper để tạo Task Scheduler
-├── main.py                    # Entry point chính của chương trình
-├── requirements.txt           # Danh sách thư viện cần cài
-├── .gitignore
-└── README.md
+ThreatFeedAggregator
+├─ analyze.py
+├─ config
+│  └─ config.yaml						
+├─ core
+│  ├─ aggregator.py
+│  ├─ checkpoint.py
+│  ├─ db.py
+│  ├─ enricher.py
+│  ├─ exporter.py
+│  ├─ ioc_normalizer.py
+│  ├─ pipeline.py
+│  ├─ queue.py
+│  └─ standardizer.py
+├─ data
+│  └─ database
+├─ feeds
+│  ├─ downloader.py
+│  ├─ Fetch.py
+│  └─ parser.py
+├─ main.py
+├─ models
+│  ├─ feed_config.py
+│  └─ ioc.py
+├─ readme.md
+├─ test.py
+└─ utils
+   ├─ config.py
+   ├─ config_loader.py
+   ├─ logger_util.py
+   └─ scheduler.py
 ```
 
 ## Mô tả các thành phần
 
 ### Feeds Module (`feeds/`)
-- **Fetch.py**: Quản lý việc tải feeds và phân phối dữ liệu tới các parser.
-- **downloader.py**: Tiện ích tải HTTP (retry, timeout) cho các feed.
-- **parser.py**: Parser chung hỗ trợ CSV/JSON/freetext và regex phát hiện IOC.
+- `abusech_feed.py`: Thu thập dữ liệu từ Abuse.ch  
+- `alienvault_feed.py`: Thu thập dữ liệu từ AlienVault OTX  
+- Các module khác cho từng nguồn threat intelligence  
+- `downloader.py` + `Fetch.py`: Quản lý tải feed  
+- `parser.py`: Phân tích và chuẩn hóa dữ liệu feed thô  
 
 ### Core Module (`core/`)
-- **aggregator.py**: Hàm chính thu thập từ nhiều nguồn và loại bỏ trùng lặp
-- **pipeline.py**: Điều phối toàn bộ luồng xử lý và trả về thống kê.
-- **ioc_normalizer.py**: Chuẩn hóa định dạng IOC.
-- **db.py**: Các hàm thao tác với cơ sở dữ liệu
-- **queue.py**: Tổ chức hàng đợi xử lý
-- **exporter.py**: Xuất kết quả ra CSV/JSON trong `output/`.
-- **enricher.py**: (Tùy chọn) tăng cường thông tin cho IOC.
-- **checkpoint.py**: Lưu và phục hồi checkpoint xử lý.
-- **standardizer.py**: Các hàm chuẩn hóa bổ sung.
+- `aggregator.py`: Thu thập dữ liệu từ nhiều feed và loại bỏ trùng lặp  
+- `ioc_normalizer.py` / `standardizer.py`: Chuẩn hóa IoC về định dạng chung  
+- `db.py`: Hàm thao tác cơ sở dữ liệu (SQLite), lưu batch IoC  
+- `queue.py`: File-backed queue cho producer/consumer  
+- `exporter.py`: Xuất dữ liệu ra JSON/CSV  
+- `pipeline.py`: Điều phối toàn bộ pipeline (enqueue, drain, checkpoint)  
+- `checkpoint.py`: Quản lý checkpoint, hỗ trợ resume/interrupt  
+- `enricher.py`: Bổ sung thông tin bổ sung cho IoC  
 
 ### Utils Module (`utils/`)
-- **logger_util.py**: Cấu hình hệ thống ghi log
-- **config_loader.py**: Đọc và xử lý file cấu hình YAML
-- **config.py**: Hằng số và cài đặt mặc định dự án.
-- **scheduler.py**: Scheduler nội bộ, lưu PID vào `data/processed/scheduler.pid`.
-- **service_manager.py**: Tiện ích hỗ trợ quản lý tiến trình/tác vụ nền.
+- `logger_util.py`: Cấu hình logging  
+- `config_loader.py`: Đọc và xử lý file YAML (`feeds.yaml`, `settings.yaml`)  
+- `scheduler.py`: Chạy các tác vụ theo lịch định kỳ  
 
 ### Configuration (`config/`)
-- **config.yaml**: File cấu hình chính (feeds và các cài đặt chung).
+- `feeds.yaml`: Danh sách nguồn feed, URL, tham số API  
+- `settings.yaml`: Cấu hình chung (log path, output format, TTL, batch size...)  
 
 ### Data Storage (`data/`)
-- **raw/**: Dữ liệu thô tải về từ các feed
-- **processed/**: Dữ liệu đã xử lý/chuẩn hóa
-  - **ioc.queue**: Hàng đợi IOC chờ xử lý (`data/processed/ioc.queue`)
-  - **scheduler.pid**: PID của scheduler nội bộ nếu đang chạy (`data/processed/scheduler.pid`)
-  - **database/**: Thư mục chứa file DB nhẹ (nếu có)
+- `raw/`: Lưu dữ liệu feed thô  
+- `processed/`: Dữ liệu đã chuẩn hóa và loại trùng  
+- `database/`: SQLite DB lưu IoC  
+
+---
 
 ## Cài đặt
 
@@ -98,19 +97,18 @@ pip install -r requirements.txt
 
 ## Sử dụng
 
-- Chạy tương tác (menu):
+- Chạy qua menu:
 
 ```bash
 python main.py
 ```
-
-- Chạy một lần (dùng cho automation / Task Scheduler):
+- Chạy một lần:
 
 ```bash
 python main.py --fetch-once
 ```
 
-- Chạy scheduler nội bộ (chạy liên tục trong foreground):
+- Lập lịch (luôn mở cmd)
 
 ```bash
 python main.py --scheduler --work-hour <giờ> --work-minute <phút>
@@ -122,21 +120,15 @@ python main.py --scheduler --work-hour <giờ> --work-minute <phút>
 python main.py --stop-scheduler
 ```
 
-Ghi chú:
-- `--fetch-once` thích hợp để chạy từ Task Scheduler hoặc cron (chạy xong thì exit).
-- `--scheduler` sẽ lưu PID vào `data/processed/scheduler.pid` và chạy vòng lặp mỗi ngày vào giờ chỉ định.
-- Khi gặp vấn đề: xem `logs/aggregator.log` để biết pipeline có được khởi động và có lỗi gì không.
-
-**Chạy `setup_scheduler.ps1` (Windows Task Scheduler helper)**
-
+## Hướng dẫn lập lịch tự động trên PowerShell
+- [Lập lịch tự động](https://drive.google.com/file/d/16L3KQU62ydEbfgCkeLaVya4Y3X7UF8xy/view?usp=drive_link)
+- Hướng dẫn chi tiết:
 - Mở PowerShell dưới quyền Administrator và vào thư mục project:
 
 ```powershell
 Set-Location E:\ThreatFeedAggregator
-powershell -ExecutionPolicy Bypass -File setup_scheduler.ps1
 ```
-
-- Tạo task với thời gian tuỳ chỉnh:
+- Tạo task với thời gian tuỳ chỉnh (Không nhập -Hour và -Minute nếu muốn mặc định vào 8:00AM)
 
 ```powershell
 powershell -ExecutionPolicy Bypass -File setup_scheduler.ps1 -Hour 2 -Minute 0
@@ -154,20 +146,17 @@ powershell -ExecutionPolicy Bypass -File setup_scheduler.ps1 -Action run
 # Xóa task
 powershell -ExecutionPolicy Bypass -File setup_scheduler.ps1 -Action delete
 ```
+## Bảng Phân Công Nhiệm Vụ
 
-Ví dụ các script tiện ích khác:
+| STT | Thành viên        | Nhiệm vụ chính                                                                 | Ghi chú |
+|-----|------------------|-------------------------------------------------------------------------------|---------|
+| 1   | Lê Đăng Khôi      | Thiết kế cấu trúc thư mục, quản lý cơ sở dữ liệu và module làm giàu dữ liệu      | Quản lý dữ liệu, bổ sung thông tin cho IoC |
+| 2   | Nguyễn Thế Anh    | Fetch dữ liệu từ nhiều nguồn tự động, normalize dữ liệu fetch, áp dụng Deep Learning để truy xuất TTP và IoC từ security report | Xử lý feed, phân tích nâng cao |
+| 3   | Nguyễn Thanh Phong| Xây dựng pipeline, scheduler và giao diện menu                                | Quản lý luồng dữ liệu và chạy theo lịch |
+| 4   | Huỳnh Anh Khôi    | Chức năng export dữ liệu, tổ chức hàng đợi cần xử lý, đánh giá hiệu năng tổng quan | Xuất dữ liệu ra định dạng khác, tối ưu hàng chờ file và đánh giá tổng thể |
 
-```bash
-python analyze.py                    # Phân tích data/processed/ioc.queue và xuất biểu đồ
-python extract_ioc_from_pdf.py file.pdf   # Trích IOC từ PDF và in ra console
-python extract_ioc_to_json.py file.pdf    # Trích IOC và lưu ra JSON
-```
 
-## Tính năng chính
 
-- Thu thập IoC từ nhiều nguồn threat intelligence
-- Chuẩn hóa dữ liệu về định dạng chung
-- Loại bỏ các IoC trùng lặp
-- Xuất dữ liệu ra nhiều định dạng (JSON, CSV)
-- Hệ thống logging chi tiết
-- Chạy tự động theo lịch trình
+
+
+
