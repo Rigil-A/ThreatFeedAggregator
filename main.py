@@ -1,8 +1,13 @@
 from core.pipeline import ThreatIntelPipeline
 from utils.logger_util import setup_logging, get_logger
+from core.exporter import IOCExporter
 import argparse
 import csv
 from datetime import datetime
+
+# last in-memory IOCs & last export results (used by interactive menu)
+_last_iocs = None
+_last_export_results = None
 
 
 def run_once():
@@ -30,20 +35,17 @@ def run_once():
         print(f"[✓] Total IOCs: {len(all_iocs)}")
         
         timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
-        csv_file = f"output/iocs_{timestamp}.csv"
-        
-        # Sửa fieldnames để khớp với IOC.to_dict()
-        with open(csv_file, "w", newline="", encoding="utf-8") as f:
-            writer = csv.DictWriter(
-                f, 
-                fieldnames=["ioc", "type", "source", "feed_name", "metadata"]
-            )
-            writer.writeheader()
-            for ioc in all_iocs:
-                writer.writerow(ioc.to_dict())
-        
-        print(f"[✓] Saved {len(all_iocs)} IOCs to {csv_file}")
-        # In 10 IOC đầu tiên
+        # Use IOCExporter to export to multiple formats and keep last results in memory
+        exporter = IOCExporter(output_dir="output")
+        global _last_iocs, _last_export_results
+        _last_iocs = all_iocs
+        _last_export_results = exporter.export_all_formats(all_iocs, base_filename=f"iocs_{timestamp}")
+
+        # Report exported paths per format
+        for fmt, path in _last_export_results.items():
+            print(f"[✓] Saved ({fmt}): {path}")
+
+        # Print 10 first IOCs for quick inspection
         for ioc in all_iocs[:10]:
             print(ioc.to_dict())
 
@@ -178,7 +180,9 @@ if __name__ == "__main__":
                 print("2) Start scheduler")
                 print("3) Stop scheduler")
                 print("4) Exit")
-                choice = input("Select an option [1-4]: ").strip()
+                print("5) Export last collected IOCs (from memory)")
+                print("6) Export IOCs from DB")
+                choice = input("Select an option [1-6]: ").strip()
 
                 if choice == "1":
                     run_once()
@@ -193,14 +197,57 @@ if __name__ == "__main__":
                         work_hour, work_minute = default_hour, default_minute
 
                     print(f"[INFO] Starting scheduler at {work_hour:02d}:{work_minute:02d} (this will run until stopped)")
-                    # Note: run_scheduler may block while scheduler runs
+                    # Chú ý: hàm này sẽ không trở về cho đến khi scheduler dừng
                     run_scheduler(work_hour=work_hour, work_minute=work_minute)
                 elif choice == "3":
                     stop_scheduler()
                 elif choice == "4" or choice.lower() == "q":
                     print("Exiting.")
                     break
+                elif choice == "5":
+                    # xuất các IOC đã thu thập lần cuối từ bộ nhớ
+                    if _last_iocs is None:
+                        print("[INFO] No in-memory IOCs available. Run fetch first.")
+                    else:
+                        fmt = input("Format (csv|json|txt|jsonl|sqlite|all) [all]: ").strip() or "all"
+                        exporter = IOCExporter(output_dir="output")
+                        ts = datetime.now().strftime("%Y%m%d_%H%M%S")
+                        if fmt == "all":
+                            res = exporter.export_all_formats(_last_iocs, base_filename=f"iocs_{ts}")
+                            for k, v in res.items():
+                                print(f"[✓] Saved ({k}): {v}")
+                        elif fmt == "csv":
+                            p = exporter.export_csv(_last_iocs, filename=f"iocs_{ts}.csv")
+                            print(f"[✓] Saved (csv): {p}")
+                        elif fmt == "json":
+                            p = exporter.export_json(_last_iocs, filename=f"iocs_{ts}.json")
+                            print(f"[✓] Saved (json): {p}")
+                        elif fmt == "txt":
+                            p = exporter.export_txt(_last_iocs, filename=f"iocs_{ts}.txt")
+                            print(f"[✓] Saved (txt): {p}")
+                        elif fmt == "jsonl":
+                            p = exporter.export_jsonl(_last_iocs, filename=f"iocs_{ts}.jsonl")
+                            print(f"[✓] Saved (jsonl): {p}")
+                        elif fmt == "sqlite":
+                            p = exporter.export_sqlite(_last_iocs, filename=f"iocs_{ts}.sqlite")
+                            print(f"[✓] Saved (sqlite): {p}")
+                        else:
+                            print("[ERROR] Unsupported format.")
+                elif choice == "6":
+                    dbp = input("DB path (default data/database/ioc_database.db): ").strip() or None
+                    fmt = input("Format (csv|json|txt|jsonl|sqlite|all) [csv]: ").strip() or "csv"
+                    filename = input("Filename (optional): ").strip() or None
+                    exporter = IOCExporter(output_dir="output")
+                    try:
+                        res = exporter.export_from_db(fmt=fmt, db_path=dbp, filename=filename)
+                        if isinstance(res, dict):
+                            for k, v in res.items():
+                                print(f"[✓] Saved ({k}): {v}")
+                        else:
+                            print(f"[✓] Saved ({fmt}): {res}")
+                    except Exception as e:
+                        print(f"[ERROR] Failed export from DB: {e}")
                 else:
-                    print("Invalid option. Please choose 1-4.")
+                    print("Invalid option. Please choose 1-6.")
 
         interactive_menu(default_hour=args.work_hour, default_minute=args.work_minute)
