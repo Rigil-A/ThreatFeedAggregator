@@ -101,6 +101,48 @@ class File_queue:
         finally:
             self._release_lock()
         return item
+    # Hàm để lấy nhiều items cùng lúc (batch pop) để tối ưu hiệu năng
+    def pop_batch(self, batch_size=1000):
+        """
+        Pop nhiều items cùng lúc để tránh phải đọc/ghi file nhiều lần.
+        Trả về list các items, hoặc empty list nếu queue rỗng.
+        """
+        if not os.path.exists(self.queue_path) or os.path.getsize(self.queue_path) == 0:
+            return []
+        
+        self._wait_for_lock()
+        items = []
+        try:
+            with open(self.queue_path, 'r+') as f:
+                lines = f.readlines()
+                if not lines:
+                    return []
+                
+                # Lấy tối đa batch_size items
+                items_to_pop = min(batch_size, len(lines))
+                for i in range(items_to_pop):
+                    try:
+                        item = json.loads(lines[i].strip())
+                        items.append(item)
+                    except json.JSONDecodeError:
+                        continue  # Bỏ qua dòng JSON không hợp lệ
+                
+                # Ghi lại phần còn lại (từ dòng batch_size trở đi)
+                if items_to_pop < len(lines):
+                    f.seek(0)
+                    f.writelines(lines[items_to_pop:])
+                    f.truncate()
+                else:
+                    # Nếu đã lấy hết, xóa toàn bộ nội dung
+                    f.seek(0)
+                    f.truncate()
+        except IOError as e:
+            print(f"[ERROR] Could not pop batch from {self.queue_path}: {e}")
+            return []
+        finally:
+            self._release_lock()
+        return items
+    
     #Hàm để kiểm tra kích thước (số lượng item) của hàng đợi
     def size(self):
         self._wait_for_lock() #Phải chờ lock để có kết quả chính xác.
@@ -116,3 +158,13 @@ class File_queue:
         finally:
             self._release_lock()
         return count
+    
+    # Kiểm tra queue có tồn tại và có dữ liệu không
+    def has_data(self):
+        """Kiểm tra queue có tồn tại và có dữ liệu không"""
+        if not os.path.exists(self.queue_path):
+            return False
+        try:
+            return os.path.getsize(self.queue_path) > 0
+        except OSError:
+            return False
