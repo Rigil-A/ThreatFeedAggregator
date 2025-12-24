@@ -102,6 +102,15 @@ python main.py
 ```
 
 
+## Bảng Phân Công Nhiệm Vụ
+
+| STT | Thành viên        | Nhiệm vụ chính                                                                 | Ghi chú |
+|-----|------------------|-------------------------------------------------------------------------------|---------|
+| 1   | Lê Đăng Khôi      | Thiết kế cấu trúc thư mục, quản lý cơ sở dữ liệu và module `enricher.py`      | Quản lý dữ liệu, bổ sung thông tin cho IoC |
+| 2   | Nguyễn Thế Anh    | Fetch dữ liệu từ nhiều nguồn tự động, normalize dữ liệu fetch, áp dụng Deep Learning để truy xuất TTP và IoC từ security report | Xử lý feed, phân tích nâng cao |
+| 3   | Nguyễn Thanh Phong| Xây dựng pipeline, scheduler và giao diện menu                                | Quản lý luồng dữ liệu và chạy theo lịch |
+| 4   | Huỳnh Anh Khôi    | Chức năng export dữ liệu, tổ chức hàng đợi cần xử lý, đánh giá hiệu năng tổng quan | Xuất JSON/CSV, tối ưu queue và performance |
+
 
 
 
