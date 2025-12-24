@@ -154,11 +154,19 @@ if __name__ == "__main__":
         default=0,
         help="Work minute for scheduler (default: 0)"
     )
+    parser.add_argument(
+        "--fetch-once",
+        action="store_true",
+        help="Fetch IOCs once and exit (for automation/scheduler)"
+    )
     
     args = parser.parse_args()
     
     # Chọn chế độ chạy
-    if args.stop_scheduler:
+    if args.fetch_once:
+        # Chế độ tự động: chạy fetch một lần rồi thoát
+        run_once()
+    elif args.stop_scheduler:
         # Dừng scheduler đang chạy
         stop_scheduler()
     elif args.scheduler:
