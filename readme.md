@@ -97,13 +97,55 @@ pip install -r requirements.txt
 
 ## Sử dụng
 
+- Chạy qua menu:
+
 ```bash
 python main.py
+```
+- Chạy một lần:
+
+```bash
+python main.py --fetch-once
+```
+
+- Lập lịch (luôn mở cmd)
+
+```bash
+python main.py --scheduler --work-hour <giờ> --work-minute <phút>
+```
+
+- Dừng scheduler nội bộ (khi đã có PID):
+
+```bash
+python main.py --stop-scheduler
 ```
 
 ## Hướng dẫn lập lịch tự động trên PowerShell
 - [Lập lịch tự động](https://drive.google.com/file/d/16L3KQU62ydEbfgCkeLaVya4Y3X7UF8xy/view?usp=drive_link)
+- Hướng dẫn chi tiết:
+- Mở PowerShell dưới quyền Administrator và vào thư mục project:
 
+```powershell
+Set-Location E:\ThreatFeedAggregator
+```
+- Tạo task với thời gian tuỳ chỉnh (Không nhập -Hour và -Minute nếu muốn mặc định vào 8:00AM)
+
+```powershell
+powershell -ExecutionPolicy Bypass -File setup_scheduler.ps1 -Hour 2 -Minute 0
+```
+
+- Các lệnh quản lý task:
+
+```powershell
+# Kiểm tra trạng thái
+powershell -ExecutionPolicy Bypass -File setup_scheduler.ps1 -Action status
+
+# Chạy ngay bây giờ
+powershell -ExecutionPolicy Bypass -File setup_scheduler.ps1 -Action run
+
+# Xóa task
+powershell -ExecutionPolicy Bypass -File setup_scheduler.ps1 -Action delete
+```
 ## Bảng Phân Công Nhiệm Vụ
 
 | STT | Thành viên        | Nhiệm vụ chính                                                                 | Ghi chú |
