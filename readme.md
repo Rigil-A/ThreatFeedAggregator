@@ -49,29 +49,37 @@ ThreatFeed-Aggregator/
 ## Mô tả các thành phần
 
 ### Feeds Module (`feeds/`)
-- **abusech_feed.py**: Thu thập dữ liệu từ Abuse.ch
-- **alienvault_feed.py**: Thu thập dữ liệu từ AlienVault OTX
-- Các module khác cho từng nguồn threat intelligence
+- `abusech_feed.py`: Thu thập dữ liệu từ Abuse.ch  
+- `alienvault_feed.py`: Thu thập dữ liệu từ AlienVault OTX  
+- Các module khác cho từng nguồn threat intelligence  
+- `downloader.py` + `Fetch.py`: Quản lý tải feed  
+- `parser.py`: Phân tích và chuẩn hóa dữ liệu feed thô  
 
 ### Core Module (`core/`)
-- **aggregator.py**: Hàm chính thu thập từ nhiều nguồn và loại bỏ trùng lặp
-- **normalizer.py**: Chuẩn hóa IoC về định dạng chung
-- **db.py**: Các hàm thao tác với cơ sở dữ liệu
-- **queue.py**: Tổ chức hàng đợi xử lý
-- **exporter.py**: Xuất dữ liệu ra các định dạng JSON/CSV
+- `aggregator.py`: Thu thập dữ liệu từ nhiều feed và loại bỏ trùng lặp  
+- `ioc_normalizer.py` / `standardizer.py`: Chuẩn hóa IoC về định dạng chung  
+- `db.py`: Hàm thao tác cơ sở dữ liệu (SQLite), lưu batch IoC  
+- `queue.py`: File-backed queue cho producer/consumer  
+- `exporter.py`: Xuất dữ liệu ra JSON/CSV  
+- `pipeline.py`: Điều phối toàn bộ pipeline (enqueue, drain, checkpoint)  
+- `checkpoint.py`: Quản lý checkpoint, hỗ trợ resume/interrupt  
+- `enricher.py`: Bổ sung thông tin bổ sung cho IoC  
 
 ### Utils Module (`utils/`)
-- **logger_util.py**: Cấu hình hệ thống ghi log
-- **config_loader.py**: Đọc và xử lý file cấu hình YAML
-- **scheduler.py**: Chạy các tác vụ định kỳ
+- `logger_util.py`: Cấu hình logging  
+- `config_loader.py`: Đọc và xử lý file YAML (`feeds.yaml`, `settings.yaml`)  
+- `scheduler.py`: Chạy các tác vụ theo lịch định kỳ  
 
 ### Configuration (`config/`)
-- **feeds.yaml**: Danh sách nguồn feed, URL, tham số API
-- **settings.yaml**: Cấu hình chung như đường dẫn log, định dạng output, TTL
+- `feeds.yaml`: Danh sách nguồn feed, URL, tham số API  
+- `settings.yaml`: Cấu hình chung (log path, output format, TTL, batch size...)  
 
 ### Data Storage (`data/`)
-- **raw/**: Dữ liệu thô từ từng nguồn feed
-- **processed/**: Dữ liệu đã được chuẩn hóa và loại bỏ trùng lặp
+- `raw/`: Lưu dữ liệu feed thô  
+- `processed/`: Dữ liệu đã chuẩn hóa và loại trùng  
+- `database/`: SQLite DB lưu IoC  
+
+---
 
 ## Cài đặt
 
@@ -92,4 +100,5 @@ python main.py
 - Loại bỏ các IoC trùng lặp
 - Xuất dữ liệu ra nhiều định dạng (JSON, CSV)
 - Hệ thống logging chi tiết
+
 - Chạy tự động theo lịch trình
