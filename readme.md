@@ -146,6 +146,8 @@ powershell -ExecutionPolicy Bypass -File setup_scheduler.ps1 -Action run
 # Xóa task
 powershell -ExecutionPolicy Bypass -File setup_scheduler.ps1 -Action delete
 ```
+### Demo
+- [Demo](https://drive.google.com/drive/folders/1onzjq1Z5mnLg2XbpnTgudWO6sZGfbNHA?usp=drive_link)
 ## Bảng Phân Công Nhiệm Vụ
 
 | STT | Thành viên        | Nhiệm vụ chính                                                                 | Ghi chú |
@@ -154,6 +156,7 @@ powershell -ExecutionPolicy Bypass -File setup_scheduler.ps1 -Action delete
 | 2   | Nguyễn Thế Anh    | Fetch dữ liệu từ nhiều nguồn tự động, normalize dữ liệu fetch, áp dụng Deep Learning để truy xuất TTP và IoC từ security report | Xử lý feed, phân tích nâng cao |
 | 3   | Nguyễn Thanh Phong| Xây dựng pipeline, scheduler và giao diện menu                                | Quản lý luồng dữ liệu và chạy theo lịch |
 | 4   | Huỳnh Anh Khôi    | Chức năng export dữ liệu, tổ chức hàng đợi cần xử lý, đánh giá hiệu năng tổng quan | Xuất dữ liệu ra định dạng khác, tối ưu hàng chờ file và đánh giá tổng thể |
+
 
 
 
